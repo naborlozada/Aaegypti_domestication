@@ -1,0 +1,57 @@
+
+conmmand_line.trimmomatic:
+    java -jar $trimmomatic PE -threads 30 -phred33 -trimlog outfile-trimclip_logfile ${sample}_R1 ${sample}_R2  $paired_dir_path/${sample}_R1_paired  $unpaired_dir_path/${sample}_R1_unpaired  $paired_dir_path/${sample}_R2_paired   $unpaired_dir_path/${sample}_R2_unpaired  ILLUMINACLIP:/node007/share_tools/tools/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+
+conmmand_line.BWA:
+    $BWA mem -t 30  $reference_dir/$reference_genome  $paired_dir_path/${sample}_R1_paired  $paired_dir_path/${sample}_R2_paired  -R '@RG\tID:$ID_TAG\tSM:$ID_TAG\tPL:illumina' | $SAMTOOLS view -b -@ 30 - >  $outfiles/${BAM}_R1R2_paired_outfile.bam
+
+conmmand_line.SortSam:
+    java -Xmx60G -jar $PICARD SortSam  INPUT=$outfiles/${BAM}_R1R2_paired_outfile.bam  OUTPUT=$outfiles/${BAM}_SORTED_outfile.bam  SORT_ORDER=coordinate  TMP_DIR=$tmp_files
+
+conmmand_line.MarkDuplicates:
+    java -Xmx60G -jar $PICARD MarkDuplicates  INPUT=$outfiles/${BAM}_SORTED_outfile.bam  OUTPUT=$outfiles/${BAM}.paired.dedup_reads.bam  METRICS_FILE=$outfiles/$DUPLICATES_metrics
+
+conmmand_line.BWA:
+    $BWA index  $outfiles/${BAM}.paired.dedup_reads.bam
+
+conmmand_line.ValidateSamFile:
+    java -Xmx60G -jar $PICARD ValidateSamFile I=$outfiles/${BAM}.paired.dedup_reads.bam  O=$outfiles/${BAM}.paired.dedup_reads.ValidateSamFile.txt   MODE=SUMMARY
+
+
+
+
+
+
+/node007/share_tools/tools/bwa/bwa mem -M -t 16 \
+/home/pischedda/General_Data/AaegL5/Aedes-aegypti-LVP_AGWG_CHROMOSOMES_AaegL5.fasta \
+${sample}_1.fastq.gz \
+${sample}_2.fastq.gz \
+-R "@RG\tID:${sample}\tLB:WholeGenome\tSM:${sample}\tPL:ILLUMINA\tPU:FlowCellId" | \
+samtools view -@ 16 -b - > /node007/users/nlozada/AaegL5/alignments/${sample}.bam
+
+/node007/share_tools/tools/java/jre1.7.0_51/bin/java -Xmx32768M -jar /node007/share_tools/tools/picard/AddOrReplaceReadGroups.jar \
+INPUT=/node007/users/nlozada/AaegL5/alignments/${sample}.bam \
+OUTPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_RRG.bam \
+RGID=${sample} \
+RGLB=WholeGenome \
+RGSM=${sample} \
+RGPL=ILLUMINA \
+RGPU=FlowCellId
+
+/node007/share_tools/tools/java/jre1.7.0_51/bin/java -Xmx32768M -jar /node007/share_tools/tools/picard/CleanSam.jar \
+INPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_RRG.bam \
+OUTPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_CLEANED.bam \
+VALIDATION_STRINGENCY=SILENT
+
+/node007/share_tools/tools/java/jre1.7.0_51/bin/java -Xmx32768M -jar /node007/share_tools/tools/picard/SortSam.jar \
+INPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_CLEANED.bam \
+OUTPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_SORTED.bam \
+SORT_ORDER=coordinate \
+CREATE_INDEX=True
+
+/node007/share_tools/tools/java/jre1.7.0_51/bin/java -Xmx32768M -jar /node007/share_tools/tools/picard/MarkDuplicates.jar \
+INPUT=/node007/users/nlozada/AaegL5/alignments/${sample}_SORTED.bam \
+OUTPUT=/node007/users/nlozada/AaegL5/alignments/Mark_Duplicates/${sample}.bam \
+METRICS_FILE=/node007/users/nlozada/AaegL5/alignments/Mark_Duplicates/${sample}_MD_metrics.txt \
+ASSUME_SORTED=True \
+CREATE_INDEX=True
