@@ -8,10 +8,10 @@ export TMPDIR=/node007/users/nabor/TMP_DIR/
 
 tmpdir=/node007/users/nabor/TMP_DIR/
 GATK=/node007/users/nabor/programs/gatk
-reference_genome=/node007/users/nabor/nabor/aedes_aegypti/Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta
-WORKING_DIR=/node007/users/nabor/nabor/aedes_aegypti/
-varDB_indels=/node007/users/nabor/nabor/aedes_aegypti/indels.Db.vcf.gz
-varDB_snps=/node007/users/nabor/nabor/aedes_aegypti/snps.Db.vcf.gz
+reference_genome=/node007/users/nabor/aedes_aegypti/Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta
+WORKING_DIR=/node007/users/nabor/aedes_aegypti/
+varDB_indels=/node007/users/nabor/aedes_aegypti/indels.Db.vcf.gz
+varDB_snps=/node007/users/nabor/aedes_aegypti/snps.Db.vcf.gz
 
 ```
 
