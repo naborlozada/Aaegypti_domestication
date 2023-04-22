@@ -1,24 +1,14 @@
-
-conmmand_line.trimmomatic:
-    java -jar $trimmomatic PE -threads 30 -phred33 -trimlog outfile-trimclip_logfile ${sample}_R1 ${sample}_R2  $paired_dir_path/${sample}_R1_paired  $unpaired_dir_path/${sample}_R1_unpaired  $paired_dir_path/${sample}_R2_paired   $unpaired_dir_path/${sample}_R2_unpaired  ILLUMINACLIP:/node007/share_tools/tools/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-
-conmmand_line.BWA:
-    $BWA mem -t 30  $reference_dir/$reference_genome  $paired_dir_path/${sample}_R1_paired  $paired_dir_path/${sample}_R2_paired  -R '@RG\tID:$ID_TAG\tSM:$ID_TAG\tPL:illumina' | $SAMTOOLS view -b -@ 30 - >  $outfiles/${BAM}_R1R2_paired_outfile.bam
-
-conmmand_line.SortSam:
-    java -Xmx60G -jar $PICARD SortSam  INPUT=$outfiles/${BAM}_R1R2_paired_outfile.bam  OUTPUT=$outfiles/${BAM}_SORTED_outfile.bam  SORT_ORDER=coordinate  TMP_DIR=$tmp_files
-
-conmmand_line.MarkDuplicates:
-    java -Xmx60G -jar $PICARD MarkDuplicates  INPUT=$outfiles/${BAM}_SORTED_outfile.bam  OUTPUT=$outfiles/${BAM}.paired.dedup_reads.bam  METRICS_FILE=$outfiles/$DUPLICATES_metrics
-
-conmmand_line.BWA:
-    $BWA index  $outfiles/${BAM}.paired.dedup_reads.bam
-
-conmmand_line.ValidateSamFile:
-    java -Xmx60G -jar $PICARD ValidateSamFile I=$outfiles/${BAM}.paired.dedup_reads.bam  O=$outfiles/${BAM}.paired.dedup_reads.ValidateSamFile.txt   MODE=SUMMARY
-
-
-
+# After FASTQ analysis, this.
+#
+# conmmand_line.trimmomatic:
+#    java -jar $trimmomatic PE -threads 30 -phred33 -trimlog outfile-trimclip_logfile ${sample}_R1 ${sample}_R2  $paired_dir_path/${sample}_R1_paired  $unpaired_dir_path/${sample}_R1_unpaired  $paired_dir_path/${sample}_R2_paired   $unpaired_dir_path/${sample}_R2_unpaired  ILLUMINACLIP:/node007/share_tools/tools/Trimmomatic-0.38/adapters/TruSeq3-PE.fa:2:30:10  LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+#
+# Then, the pipeline below.
+# 
+# As good practice, check for errors in each BAM file:
+# Example:
+#    java -Xmx60G -jar $PICARD ValidateSamFile I=$outfiles/${BAM}.paired.dedup_reads.bam  O=$outfiles/${BAM}.paired.dedup_reads.ValidateSamFile.txt   MODE=SUMMARY
+#
 
 
 
