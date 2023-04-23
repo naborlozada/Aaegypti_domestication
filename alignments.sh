@@ -13,7 +13,7 @@
 
 
 /node007/share_tools/tools/bwa/bwa mem -M -t 16 \
-/home/pischedda/General_Data/AaegL5/Aedes-aegypti-LVP_AGWG_CHROMOSOMES_AaegL5.fasta \
+/node007/users/nlozada/AaegL5/Aedes-aegypti-LVP_AGWG_CHROMOSOMES_AaegL5.fasta \
 ${sample}_1.fastq.gz \
 ${sample}_2.fastq.gz \
 -R "@RG\tID:${sample}\tLB:WholeGenome\tSM:${sample}\tPL:ILLUMINA\tPU:FlowCellId" | \
