@@ -7,6 +7,9 @@
 # nabor.lozada@gmail.com                       #
 # -------------------------------------------- #
 
+
+
+
 # /// START ///
 #########################################################################################################################################
 Sys.time()
@@ -27,7 +30,7 @@ setwd("/directory/");
 
 
 
-# // Annotations: Refenrece geneme (fa), gene annotations (txdb), SNPs (vcf) //
+# // Annotations //
 # reference fasta genome
 fa=open(FaFile("Aedes-aegypti-LVP_AGWG_CHROMOSOMES_AaegL5.fa"));
 # reference gff genome
@@ -37,23 +40,22 @@ vcf=readVcf("mySNPs.vcf.gz");
 
 
 
-# get effects in Protein Coding Genes
+# get effects
 effects = predictCoding(vcf, txdb, fa);
 
 
 
-# list of genes in the genome/gff
+# list of genes
 AaegL5_genes = unique(effects$GENEID);
 
 # define variable
 main_results_table=data.frame(GeneID=AaegL5_genes,L0=0,L2=0,L4=0,A0=0,A2=0,A4=0,B0=0,B2=0,B4=0);
 
-# Effects by gene ID
+# Effects
 geneEffects=lapply(AaegL5_genes, function(x,effects) effects[effects$GENEID==x], effects=effects);
 
 
-
-# Get the reference codons (REFCODONS) for each gene, and variant codons (VARCODONS)
+# Get the reference codons (REFCODONS) and variant codons (VARCODONS)
 rC = lapply(geneEffects, function(x) unname(as.vector(x$REFCODON, mode="character")));
 vC = lapply(geneEffects, function(x) unname(as.vector(x$VARCODON, mode="character")));
 
@@ -71,8 +73,7 @@ for (i in seq_along(rC)) {
 
 
 
-# Function to classify each site in the gene as nondegenerate, 2-fold degen, or 4-fold degen
-# ----------------------------------------------------------------------------------------------------------------------------------------
+# Function to classify L0, L2, L4
 table_degenerates_sites <- function(codons_list) {
                                     degeneracy=list(T=list(T=list(T=c(3,3,2), C=c(3,3,2), A=c(2,3,2), G=c(2,3,2)),
                                                            C=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
@@ -97,16 +98,14 @@ table_degenerates_sites <- function(codons_list) {
 
 
 
-# Convert each set of rC to a vector of 0s, 2s, and 4s, to indicate level of degeneracy for every site
+# Convert each set of rC to a vector of 0s, 2s, and 4s, to indicate level of degeneracy
 degC=lapply(rC, table_degenerates_sites)
-
 
 
 # Calculate L0, L2, L4
 main_results_table$L0 = unlist(lapply(degC, function(x) (length(which(x==0)))/(length(x))));
 main_results_table$L2 = unlist(lapply(degC, function(x) (length(which(x==2)))/(length(x))));
 main_results_table$L4 = unlist(lapply(degC, function(x) (length(which(x==4)))/(length(x))));
-
 
 
 # Transitins(Ts) or Transversions(Tv)
@@ -152,28 +151,23 @@ for (i in seq_along(TsTv_byGene)) {
 }
 
 
-# Method's Li (1993): improved Kimura's 2-parameter model to calculate pN and pS
+# Method's Li (1993): improved Kimura's 2-parameter model
 main_results_table$pS = main_results_table$B4 + (((main_results_table$L2 * main_results_table$A2) + (main_results_table$L4*main_results_table$A4))/(main_results_table$L2 + main_results_table$L4))
 main_results_table$pN = main_results_table$A0 + (((main_results_table$L0 * main_results_table$B0) + (main_results_table$L2*main_results_table$B2))/(main_results_table$L0 + main_results_table$L2))
-
-# reference: J. Mol. Evol. 1993: 36,96-99. 
 # Equations 8 and 9, respectively.
+# reference: J. Mol. Evol. 1993: 36,96-99. 
 
 
 # And finally, the pNpS ratio:
 main_results_table$pNpS = main_results_table$pN/main_results_table$pS
 
 
-
-
 neutrality = 1.0;
-
 my_results_pnps <- main_results_table %>% mutate(selection = case_when(pNpS > neutrality  ~ "positive",
                                                                        pNpS < neutrality  ~ "negative",
                                                                        pNpS == neutrality ~ "neutral",
                                                                        pNpS == "Inf"      ~ "WARNING",
                                                                        TRUE  ~ "background"));
-
 
 
 # Save main table with results
