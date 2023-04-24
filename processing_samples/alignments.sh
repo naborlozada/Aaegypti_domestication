@@ -13,17 +13,15 @@
 #SBATCH --mem=
 #SBATCH --ntasks=1
 #SBATCH --array=0-10
-
 #SBATCH --job-name=
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=
-
 #SBATCH --time=7-00:00:00
 #SBATCH --error=preprocessing_reads.%A_%a.stderr.log
 #SBATCH --output=preprocessing_reads.%A_%a.stderr.log
 
 
-# #SBATCH --ntasks-per-node=64
+
 
 echo
 echo
