@@ -144,7 +144,6 @@ for (i in seq_along(TsTv_byGene)) {
 # Method's Li (1993): improved Kimura's 2-parameter model
 main_results_table$pS = main_results_table$B4 + (((main_results_table$L2 * main_results_table$A2) + (main_results_table$L4*main_results_table$A4))/(main_results_table$L2 + main_results_table$L4))
 main_results_table$pN = main_results_table$A0 + (((main_results_table$L0 * main_results_table$B0) + (main_results_table$L2*main_results_table$B2))/(main_results_table$L0 + main_results_table$L2))
-# Equations 8 and 9, respectively.
 # reference: J. Mol. Evol. 1993: 36,96-99. 
 
 
