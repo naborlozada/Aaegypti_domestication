@@ -9,14 +9,14 @@ Title:
 ## 
 ## Description
 
-Scripts used to analyzed >600 complete genomes of *Aedes aegypti* from 39 populations worldwide to uderstand the origin and evolution of its **domestication**. Sections of this repository: `processing samples`, `variant calling`, detection of `selection`.
+Scripts used to analyzed >600 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 39 populations worldwide to uderstand the origin and evolution of its **domestication**. Sections of this repository: `processing samples`, `variant calling`, detection of `selection`.
 
 
 ### Processing samples
 
 This directory contains three files:
 * **`quality_control.md`:** Commands used to performed a quality control in reads (\*.fastq.gz) and alignments (BAM format).
-* **`alignments.sh`:** Bash script (slurm jobs cluster system) used to align paired ended reads to the reference genome of AaegL5.
+* **`alignments.sh`:** Bash script (slurm jobs cluster system) used to align paired ended reads to the reference genome of *Ae. aegypti*, AaegL5.
 * **`recalibration.md`:** Set of command lines used to 1) re-align indels and 2) recalibrate alignments in BAM format.
   
 
@@ -35,4 +35,10 @@ This directory contains two files:
 * **`outliers_pcadapt.R`:** R script to identify the total set of outlier of SNPs of a population using PCadapt.
 * **`psps_ratio.R`:** R script to calculate the pN/pS ratio of SNPs in a population.
 
+
+## 
+## Supplementary Information
+This directory contains a single subdirectory `supplementary_Data_File_1`, which contains:
+* Phylogenetic reconstruction of 554 indivual mosquitoes.
+* Phylogenetic reconstruction of 40 populations.
 
