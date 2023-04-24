@@ -43,8 +43,6 @@ vcf=readVcf("mySNPs.vcf.gz");
 # get effects
 effects = predictCoding(vcf, txdb, fa);
 
-
-
 # list of genes
 AaegL5_genes = unique(effects$GENEID);
 
@@ -54,11 +52,9 @@ main_results_table=data.frame(GeneID=AaegL5_genes,L0=0,L2=0,L4=0,A0=0,A2=0,A4=0,
 # Effects
 geneEffects=lapply(AaegL5_genes, function(x,effects) effects[effects$GENEID==x], effects=effects);
 
-
 # Get the reference codons (REFCODONS) and variant codons (VARCODONS)
 rC = lapply(geneEffects, function(x) unname(as.vector(x$REFCODON, mode="character")));
 vC = lapply(geneEffects, function(x) unname(as.vector(x$VARCODON, mode="character")));
-
 
 # only codons (3nts)
 for (i in seq_along(rC)) {
@@ -68,9 +64,6 @@ for (i in seq_along(rC)) {
         vC[[i]]=vC[[i]][-removeThis]
     }
 }
-
-
-
 
 
 # Function to classify L0, L2, L4
@@ -95,7 +88,6 @@ table_degenerates_sites <- function(codons_list) {
                                     d=as.numeric(gsub("3", "0", gsub(0,4,d)))
                                     return(d)
                             }
-
 
 
 # Convert each set of rC to a vector of 0s, 2s, and 4s, to indicate level of degeneracy
@@ -134,8 +126,6 @@ TsTv_byGene = vector("list", length(rC))
 for (i in seq_along(rC)) {
     TsTv_byGene[[i]]=TsTv(rC[[i]], vC[[i]])
 }
-
-
 
 
 # Counts for A0, A2, A4, B0, B2,and B4 for each gene
