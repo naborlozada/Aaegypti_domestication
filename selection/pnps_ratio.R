@@ -16,7 +16,7 @@ Sys.time()
 
 
 # set library source:
-.libPaths("/home/jaketu/R/R-3.6.2/lib/R/library/")
+.libPaths("/home/nabor/R/R-3.6.2/lib/R/library/")
 rm(list=ls())
 
 
