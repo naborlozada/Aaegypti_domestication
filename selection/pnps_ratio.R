@@ -1,11 +1,11 @@
 #!/usr/bin/env Rscript
 
-# -------------------------------------------- #
-# Alejandro Nabor Lozada Chavez                #
-# Questions:                                   #
-# alejandro.chavez@unipv.it                    #
-# nabor.lozada@gmail.com                       #
-# -------------------------------------------- #
+# ------------------------------------------------ #
+#      *** Alejandro Nabor Lozada Chavez ***       #
+# Questions:                                       #
+#     alejandro.chavez@unipv.it                    #
+#     nabor.lozada@gmail.com                       #
+# ------------------------------------------------ #
 
 
 
