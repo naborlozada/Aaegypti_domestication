@@ -2,10 +2,10 @@
 
 # ------------------------------------------------ #
 #      *** Alejandro Nabor Lozada Chavez ***       #
-# Questions:                                       #
-#     alejandro.chavez@unipv.it                    #
-#     nabor.lozada@gmail.com                       #
+# Questions: alejandro.chavez@unipv.it             #
+#            nabor.lozada@gmail.com                #
 # ------------------------------------------------ #
+
 
 
 
