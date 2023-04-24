@@ -1,7 +1,8 @@
 # Realignment and recalibration of BAM files:
 
+Each command line is applied to a single BAM file. These command lines can be used either in a single bash script and/or one-by-one to each mosquito sample.
 
-Command lines applied either in a single bash script and/or one-by-one to each mosquito sample. Infiles and directories.
+Infiles and directories.
 
 ```bash
 export TMPDIR=/node007/users/nabor/TMP_DIR/
