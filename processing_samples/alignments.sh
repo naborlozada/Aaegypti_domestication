@@ -1,12 +1,10 @@
 #!/usr/bin/bash
 
-
-#######################################################################
-# Developed by: Alejandro Nabor Lozada Chavez                         #
-# Questions: nabor.lozada@gmail.com                                   #
-#            alejandro.chavez@unipv.it                                #
-#######################################################################
-
+# ------------------------------------------------ #
+#      *** Alejandro Nabor Lozada Chavez ***       #
+# Questions: alejandro.chavez@unipv.it             #
+#            nabor.lozada@gmail.com                #
+# ------------------------------------------------ #
 
 
 #SBATCH --account=
