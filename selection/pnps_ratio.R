@@ -151,14 +151,6 @@ main_results_table$pN = main_results_table$A0 + (((main_results_table$L0 * main_
 main_results_table$pNpS = main_results_table$pN/main_results_table$pS
 
 
-neutrality = 1.0;
-my_results_pnps <- main_results_table %>% mutate(selection = case_when(pNpS > neutrality  ~ "positive",
-                                                                       pNpS < neutrality  ~ "negative",
-                                                                       pNpS == neutrality ~ "neutral",
-                                                                       pNpS == "Inf"      ~ "WARNING",
-                                                                       TRUE  ~ "background"));
-
-
 # Save main table with results
 write.table(my_results_selection, "outfile.stats.txt", quote = FALSE, sep = "\t", col.names = TRUE, row.names = FALSE );
 
