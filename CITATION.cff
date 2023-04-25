@@ -1,0 +1,16 @@
+cff-version: 1.1.0
+message: "If you use 'as is' (or partially modified and use) one or more of this set of scripts, please cite it as below."
+authors:
+  - family-names: Nabor
+    given-names: Lozada-Chavez
+    orcid: https://orcid.org/0000-0002-7230-3903
+title: "Aedes aegypti domestication"
+version: v0.1b
+identifiers:
+    description: "Set of scripts used in Preprint paper Ae. aegypti domestication"
+    type: doi
+    value: 10.5281/zenodo.7863456
+    description: "Preprint paper Ae. aegypti domestication in BioRxiv"
+    type: doi
+    value: https://doi.org/10.1101/2023.03.13.532092
+date-released: 2023-04-23
