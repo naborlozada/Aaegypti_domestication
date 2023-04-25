@@ -120,7 +120,7 @@ wait;
 
 # Almost done... Maybe one last thing: check for any potential error in your alignment
 time java -Djava.io.tmpdir=${tmpdir} -Xmx20G -XX:+UseParallelGC -XX:ParallelGCThreads=16 -jar $picard ValidateSamFile \
-    INPUT=$FILE \
+    INPUT=$WORKING_DIR/${newfile}.dedup.indels_realn.bqsr.recal.bam \
     OUTPUT=$WORKING_DIR/${newfile}.dedup.indels_realn.bqsr.recal.ValidateSamFile.txt \
     MODE=SUMMARY \
     TMP_DIR=$tmpdir
