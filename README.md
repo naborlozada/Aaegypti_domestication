@@ -8,6 +8,10 @@ Title:
 **Repository/scripts citation:**\
 [![DOI](https://zenodo.org/badge/630563603.svg)](https://zenodo.org/badge/latestdoi/630563603)
 
+##
+## NOTICE:
+Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.  
+
 
 ## 
 ## Description
