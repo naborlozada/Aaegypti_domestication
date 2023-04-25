@@ -36,7 +36,7 @@ system.time( pcadapt_outliers <- pcadapt(input = filename, K = 6, method = "maha
 # transform pvalues to qvalues:
 qval <- qvalue(pcadapt_outliers$pvalues)$qvalues;
 
-# 0.1% of the dataset will be false positive
+# 1% of the dataset will be false positive
 alpha <- 0.01;
 
 outliers.qvalues <- which(qval < alpha);
