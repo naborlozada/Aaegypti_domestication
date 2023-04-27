@@ -52,7 +52,7 @@ This directory contains two files:
 ## 
 ## Supplementary Information: Supplementary Data File 1
 
-This directory contains a single subdirectory **Supplementary Data File 1**, which contains files cited in the **submitted** manuscript.
+This directory contains a single subdirectory `Supplementary_Data_File_1`, which contains files cited in the **submitted** manuscript.
 
 Content:
 * Phyologenetic reconstruction of 554 individual mosquitoes.
