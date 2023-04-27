@@ -1,6 +1,6 @@
 ## Files related to the *Supplementary Data File 1*
 
-These files are part of the `Supplementary Data File 1` cited in the **submitted** manuscript.
+These files are part of the `Supplementary_Data_File_1` cited in the **submitted** manuscript.
 
 Content:
 * Phyologenetic reconstruction of 554 individual mosquitoes.
