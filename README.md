@@ -6,7 +6,7 @@ Title:
 **Authors:** Alejandro Nabor Lozada-Chávez, Irma Lozada-Chávez, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Luis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
 
 
-<ins>These versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, please cite this repository (**`Zenodo`**) and the preprint **bioRxiv** paper.</ins>
+<ins>These versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Zenodo`**) and the preprint **bioRxiv** paper.</ins>
 
   **Repository/scripts citation:**\
    [![DOI](https://zenodo.org/badge/630563603.svg)](https://zenodo.org/badge/latestdoi/630563603)
