@@ -6,3 +6,4 @@ This directory contains two files:
 * **`psps_ratio.R`:** R script to calculate the pN/pS ratio of SNPs in a population.
 
 
+
