@@ -51,12 +51,4 @@ This directory contains two files:
 
 
 ## 
-## Supplementary Information: Supplementary Data File 1
-
-This directory contains a single subdirectory `Supplementary_Data_File_1`, which contains files cited in the **submitted** manuscript.
-
-Content:
-* Phyologenetic reconstruction of 554 individual mosquitoes.
-* Phyologenetic reconstruction of 40 mosquito populations.
-* Additional method description for the "detection of selection using PAML" (PDF file), as second approach for pN/pS ratio.
-
+## Supplementary Information: 
