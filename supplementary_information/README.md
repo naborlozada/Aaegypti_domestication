@@ -1,7 +1,6 @@
 
-#
-## Supplementary Information
 
+## Supplementary Information
 
 This directory contains the files related to **Supplementary Information** and **Supplementary Data Files** associated to the current submitted manuscript.
 
