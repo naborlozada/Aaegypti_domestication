@@ -14,8 +14,8 @@ Title:
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
 
 ##
-## NOTICE:
-1) **Supplementary Data** associated to the submmitted version of the manuscript is the in `Supplementary Information` directory. A summary of the content is below. 
+## NOTICE (updated 22-May-2023):
+1) **Supplementary Data** associated to the current submmitted version of the manuscript is in the `Supplementary Information` directory. A summary of the content is below. 
 2) Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.
 
 ## 
