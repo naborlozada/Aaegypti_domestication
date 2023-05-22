@@ -15,7 +15,7 @@ Title:
 
 ##
 ## NOTICE (updated 22-May-2023):
-1) **Supplementary Data** associated to the current submmitted version of the manuscript is in the `Supplementary Information` directory. A summary of the content is below. 
+1) **Supplementary Data** associated to the current submmitted version of the manuscript is in the `Supplementary Data` directory. A summary of the content is below. 
 2) Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.
 
 ## 
