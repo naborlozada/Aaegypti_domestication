@@ -15,8 +15,8 @@ Title:
 
 ##
 ## NOTICE:
-Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.  
-
+1) Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.  
+2) All Supplementary Data submmitted with the paper is in `Supplementary Data` section 
 
 ## 
 ## Description
@@ -52,11 +52,13 @@ This directory contains two files:
 
 
 ## 
-## Supplementary Information: 
+## Supplementary Data: 
 
-This directory contains the files related to **Supplementary Information** and **Supplementary Data Files** associated to the current submitted manuscript.
+This directory contains the files related to **Supplementary Data Files** associated to the current submitted manuscript.
 
-* `Supplementary_Information.pdf`: Information merged into a single PDF: Supplementary Information, Supplementary Data 4, and Supplementary Data 6.
-* `Supplementary_Data_Files.zip`: Supplementary Data Files 1-6 in proper format.
+* `Supplementary_Data_Files.zip`: Supplementary Data Files 1-7 in proper format.
 
+1) Supplementary Data 1: Population information and basic SNP statistics
+2) Supplementary Data 2: new nrEVEs in fasta sequences,
+3) Supplementary Data 3:
 
