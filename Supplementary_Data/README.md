@@ -4,7 +4,7 @@
 
 This directory contains the files related to **Supplementary Data Files** associated to the current submitted manuscript.
 
-* `**Supplementary_Data.zip**`: Supplementary Data Files 1-7 in proper format.
+* **`Supplementary_Data.zip`**: Supplementary Data Files 1-7 in proper format.
 
 1) Supplementary Data 1: Population information and basic SNP statistics (TXT file).
 2) Supplementary Data 2: new nrEVEs in `fasta` sequences (TXT file).
