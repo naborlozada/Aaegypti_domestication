@@ -9,11 +9,6 @@
 
 
 
-# Li's Method (1993): improved Kimura's 2-parameter model
-# reference: J. Mol. Evol. 1993: 36,96-99. 
-
-
-
 
 # /// START ///
 #########################################################################################################################################
@@ -61,9 +56,41 @@ geneEffects=lapply(AaegL5_genes, function(x,effects) effects[effects$GENEID==x],
 rC = lapply(geneEffects, function(x) unname(as.vector(x$REFCODON, mode="character")));
 vC = lapply(geneEffects, function(x) unname(as.vector(x$VARCODON, mode="character")));
 
+# only codons (3nts)
+for (i in seq_along(rC)) {
+    removeThis = unique(c(which(nchar(rC[[i]])>3), which(nchar(vC[[i]])>3)))
+    if (length(to.remove)>0) {
+        rC[[i]]=rC[[i]][-removeThis]
+        vC[[i]]=vC[[i]][-removeThis]
+    }
+}
 
 
-# Level of degeneracy: rC to a vector of 0s, 2s, and 4s
+# Function to classify L0, L2, L4
+table_degenerates_sites <- function(codons_list) {
+                                    degeneracy=list(T=list(T=list(T=c(3,3,2), C=c(3,3,2), A=c(2,3,2), G=c(2,3,2)),
+                                                           C=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           A=list(T=c(3,3,2), C=c(3,3,2), A=c(3,2,2), G=c(3,3,2)),
+                                                           G=list(T=c(3,3,2), C=c(3,3,2), A=c(3,2,3), G=c(3,3,3))),
+                                                    C=list(T=list(T=c(2,3,0), C=c(3,3,0), A=c(2,3,0), G=c(2,3,0)),
+                                                           C=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           A=list(T=c(3,2,2), C=c(3,2,2), A=c(3,2,2), G=c(3,2,2)),
+                                                           G=list(T=c(3,3,0), C=c(3,3,0), A=c(2,3,0), G=c(2,3,0))),
+                                                    A=list(T=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           C=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           A=list(T=c(3,2,2), C=c(3,2,2), A=c(3,2,2), G=c(3,2,2)),
+                                                           G=list(T=c(3,3,2), C=c(3,3,2), A=c(2,3,2), G=c(2,3,2))),
+                                                    G=list(T=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           C=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0)),
+                                                           A=list(T=c(3,2,2), C=c(3,2,2), A=c(3,2,2), G=c(3,2,2)),
+                                                           G=list(T=c(3,3,0), C=c(3,3,0), A=c(3,3,0), G=c(3,3,0))))
+                                    d=unlist(lapply(codons_list,function(x) eval(parse(text=paste0(c("degeneracy",unlist(strsplit(x, split="")),use.names=F), collapse="$")))))
+                                    d=as.numeric(gsub("3", "0", gsub(0,4,d)))
+                                    return(d)
+                            }
+
+
+# Convert each set of rC to a vector of 0s, 2s, and 4s, to indicate level of degeneracy
 degC=lapply(rC, table_degenerates_sites)
 
 
@@ -73,9 +100,28 @@ main_results_table$L2 = unlist(lapply(degC, function(x) (length(which(x==2)))/(l
 main_results_table$L4 = unlist(lapply(degC, function(x) (length(which(x==4)))/(length(x))));
 
 
+# Transitins(Ts) or Transversions(Tv)
+TsTv <- function(rC, vC) {
+                    ref=paste0(rC, collapse="")
+                    var=paste0(vC, collapse="")
+                    ref=unlist(strsplit(ref, split=""), use.names=F)
+                    var=unlist(strsplit(var, split=""), use.names=F)
+                    mut = which(ref != var)
+                    temp=ref[mut]
+                    temp[which(ref[mut]=="G")] = "A"
+                    temp[which(ref[mut]=="A")] = "G"
+                    temp[which(ref[mut]=="C")] = "T"
+                    temp[which(ref[mut]=="T")] = "C"
+                    transV = which(temp != var[mut])
+                    res = rep("N", length(ref))
+                    res[mut[transV]] = "Tv"
+                    res[mut[-transV]] = "Ts"
+                    return(res)
+        }
+
+
 # find Ts, Tv
 TsTv_byGene = vector("list", length(rC))
-
 
 for (i in seq_along(rC)) {
     TsTv_byGene[[i]]=TsTv(rC[[i]], vC[[i]])
@@ -95,9 +141,10 @@ for (i in seq_along(TsTv_byGene)) {
 }
 
 
-# rates
+# Li's Method (1993): improved Kimura's 2-parameter model
 main_results_table$pS = main_results_table$B4 + (((main_results_table$L2 * main_results_table$A2) + (main_results_table$L4*main_results_table$A4))/(main_results_table$L2 + main_results_table$L4))
 main_results_table$pN = main_results_table$A0 + (((main_results_table$L0 * main_results_table$B0) + (main_results_table$L2*main_results_table$B2))/(main_results_table$L0 + main_results_table$L2))
+# reference: J. Mol. Evol. 1993: 36,96-99. 
 
 
 # And finally, the pNpS ratio:
@@ -109,4 +156,3 @@ write.table(my_results_selection, "outfile.stats.txt", quote = FALSE, sep = "\t"
 
 # /// END ///
 #########################################################################################################################################
-
