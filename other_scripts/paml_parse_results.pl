@@ -40,8 +40,6 @@ my %HASH_CODEML_PAIR_NAMES;
 
 
 
-
-
 # Make outfile
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
 # aaeg.pops.selection.kaks.main_table.kaks_info.reference_gene_families.txt
@@ -54,10 +52,6 @@ print OUTFILE_CODEML_DNDS_SCORES "# Protocol: [a] SNP sequences were transformed
 
 print OUTFILE_CODEML_DNDS_SCORES "gene_file\tFILE_STATUS\tdnds_mean\tdnds_stdev\tdnds_min\tdnds_max\tdnds_mode\tCOUNTRY\tPOPULATION\tCHROMOSOME\toutfile\n";
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 
 
 
@@ -124,7 +118,7 @@ sub GoGoDown2{
         foreach my $j (@subdir2){
 
             if ($j !~ /^\.$/ && $j!~ /^\.\.$/ && $j!~ /^\.listing$/ && $j!~/.+\.fas$/ && $j!~/.+\.txt$/ && $j!~/.+\.tab$/ && $j!~/snap\.background/ && $j!~/snap\.summary/ && $j=~/^(.+)\.nts\.fixedN\.codons\.codeml\.ctldir$/) {
-		        my $subpwd2 = "/home/jaketu/analysis_output/aedes_aegpypti/dnds/results_from_eos/$main_DIR/$j/";        ### aedes-aegypti.admixture_groups.geno02
+		        my $subpwd2 = "/home/nlozada/aedes_aegpypti/analyses/dnds/results_from_eos/$main_DIR/$j/";        ### aedes-aegypti.admixture_groups.geno02
                 chdir $subpwd2;
                 opendir SUBSUBDIR, $subpwd2 or die "CANNOT open the SUB-DIR $subpwd2 - $! \n";
 		            $main_FINAL_DIR=$subpwd2;
