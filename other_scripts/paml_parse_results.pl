@@ -65,7 +65,7 @@ print OUTFILE_CODEML_DNDS_SCORES "gene_file\tFILE_STATUS\tdnds_mean\tdnds_stdev\
 
 # read directories
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
-my @main_directory = qw(/home/jaketu/analysis_output/aedes_aegpypti/dnds/results_from_eos/);
+my @main_directory = qw(/home/nlozada/aedes_aegpypti/analyses/dnds/results_from_eos/);
 
 foreach my $i (@main_directory){
     chdir $i;
@@ -96,7 +96,7 @@ sub GoDown1{
                 $population = $2;
                 $chromosome = $3;
                 #print "$country\t$population\t$chromosome\t$j\n";
-                my $subpwd = "/home/jaketu/analysis_output/aedes_aegpypti/dnds/results_from_eos/$j/";
+                my $subpwd = "/home/nlozada/aedes_aegpypti/analyses/dnds/results_from_eos/$j/";
 		            $main_DIR=$j;
                 chdir $subpwd;
                 opendir SUBDIR, $subpwd or die "CANNOT open the SUB-DIR $subpwd - $! \n";
