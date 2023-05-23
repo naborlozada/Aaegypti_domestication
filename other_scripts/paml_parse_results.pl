@@ -9,7 +9,7 @@
 ## Description:
 ## ===========================================================================================================================================================================================
 ## This script gets all the statistics of D,S,Dn/Ds,Ds,Dn calculated with CODEML from the PAML package and performs three main tasks:
-##      1. Creates an output file with filtered calculations (D,S,Dn/Ds,Ds,Dn) for each gene and rename it with the source population: name of country, population, chromosome, and gene ID.
+##      1. Creates an output file with filtered calculations (N,S,pN/pS,pS,pN) for each gene and rename it with the source population: name of country, population, chromosome, and gene ID.
 ##      2. For each gene, basic descriptive statistics are performed (mean, stdev, max, min, and mode) 
 ##      3. Save all information in an output file.
 ## ===========================================================================================================================================================================================
@@ -40,17 +40,16 @@ my %HASH_CODEML_PAIR_NAMES;
 
 
 
-# Make outfile
+# Make outfile (Supplementary Data 7)
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
-# aaeg.pops.selection.kaks.main_table.kaks_info.reference_gene_families.txt
-my $outfile_codeml_dnds_scores="aedes_aegypti.selection.dnds.codeml_stats.whole_genome.all_populations_genes.output.txt";
+my $outfile_codeml_dnds_scores="aedes_aegypti.selection.pnps.codeml_stats.whole_genome.all_populations_genes.output.txt";
 system "rm $outfile_codeml_dnds_scores";
-open OUTFILE_CODEML_DNDS_SCORES, ">>$outfile_codeml_dnds_scores" or die "CANNOT open the OUTFILE $outfile_codeml_dnds_scores ~ $! \n";
-print OUTFILE_CODEML_DNDS_SCORES "# version: $localdate\n";
-print OUTFILE_CODEML_DNDS_SCORES "# Info: Basic descriptive statistics for pairwise comparisons between sequences of a single population. Each single gene alignment was obtained only for those protein coding genes from a VCF file that present at least 1 SNP, and each population might have a different set of genes.\n";  
-print OUTFILE_CODEML_DNDS_SCORES "# Protocol: [a] SNP sequences were transformed into fasta format using the 'vcf2fasta' script (REF). [b] Sequences with ambiguous nucleotides and/or with strange characters (ie. /?) were removed (BASH scripting). [c] Codon alignments were created (pal2nal.pl) after translate the original fasta sequences (transeq, EMBOSS). [d] Ratio of Dn/Ds was estimated (codeml, PAML) defining individial control files (BASH scripting), which all of them were submmited via 'parallel' GNU function (EOS + NIRV2 cluster nodes).\n";
+open OUTFILE_CODEML_PNPS_SCORES, ">>$outfile_codeml_dnds_scores" or die "CANNOT open the OUTFILE $outfile_codeml_dnds_scores ~ $! \n";
+print OUTFILE_CODEML_PNPS_SCORES "# version: $localdate\n";
+print OUTFILE_CODEML_PNPS_SCORES "# Info: Basic descriptive statistics for pairwise comparisons between sequences of a single population. Each single gene alignment was obtained only for those protein coding genes from a VCF file that present at least 1 SNP, and each population might have a different set of genes.\n";  
+print OUTFILE_CODEML_PNPS_SCORES "# Protocol: [a] SNP sequences were transformed into fasta format using the 'vcf2fasta' script (REF). [b] Sequences with ambiguous nucleotides and/or with strange characters (ie. /?) were removed (BASH scripting). [c] Codon alignments were created (pal2nal.pl) after translate the original fasta sequences (transeq, EMBOSS). [d] Ratio of Dn/Ds was estimated (codeml, PAML) defining individial control files (BASH scripting), which all of them were submmited via 'parallel' GNU function (EOS + NIRV2 cluster nodes).\n";
 
-print OUTFILE_CODEML_DNDS_SCORES "gene_file\tFILE_STATUS\tdnds_mean\tdnds_stdev\tdnds_min\tdnds_max\tdnds_mode\tCOUNTRY\tPOPULATION\tCHROMOSOME\toutfile\n";
+print OUTFILE_CODEML_PNPS_SCORES "gene_file\tFILE_STATUS\tdnds_mean\tdnds_stdev\tdnds_min\tdnds_max\tdnds_mode\tCOUNTRY\tPOPULATION\tCHROMOSOME\toutfile\n";
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -118,7 +117,7 @@ sub GoGoDown2{
         foreach my $j (@subdir2){
 
             if ($j !~ /^\.$/ && $j!~ /^\.\.$/ && $j!~ /^\.listing$/ && $j!~/.+\.fas$/ && $j!~/.+\.txt$/ && $j!~/.+\.tab$/ && $j!~/snap\.background/ && $j!~/snap\.summary/ && $j=~/^(.+)\.nts\.fixedN\.codons\.codeml\.ctldir$/) {
-		        my $subpwd2 = "/home/nlozada/aedes_aegpypti/analyses/dnds/results_from_eos/$main_DIR/$j/";        ### aedes-aegypti.admixture_groups.geno02
+		        my $subpwd2 = "/home/nlozada/aedes_aegpypti/analyses/dnds/results_from_eos/$main_DIR/$j/";
                 chdir $subpwd2;
                 opendir SUBSUBDIR, $subpwd2 or die "CANNOT open the SUB-DIR $subpwd2 - $! \n";
 		            $main_FINAL_DIR=$subpwd2;
@@ -209,13 +208,13 @@ sub GoGoDown3{
                     $dnds_mean="NA";  $dnds_stdev="NA";  $dnds_min="NA";  $dnds_max="NA";  $dnds_mode="NA";
                 }
 
-                print OUTFILE_CODEML_DNDS_SCORES "$gene_file\t$FILE_STATUS\t$dnds_mean\t$dnds_stdev\t$dnds_min\t$dnds_max\t$dnds_mode\t$COUNTRY\t$POPULATION\t$CHROMOSOME\t$outfile\n";
+                print OUTFILE_CODEML_PNPS_SCORES "$gene_file\t$FILE_STATUS\t$dnds_mean\t$dnds_stdev\t$dnds_min\t$dnds_max\t$dnds_mode\t$COUNTRY\t$POPULATION\t$CHROMOSOME\t$outfile\n";
                 # ------------------------------------------------------------------------------------------
             }
         }
     }
 }
-close OUTFILE_CODEML_DNDS_SCORES;
+close OUTFILE_CODEML_PNPS_SCORES;
 
 
 
