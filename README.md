@@ -60,7 +60,7 @@ This directory contains scripts used for additional analyses and/or parse severa
 
 This directory contains the files related to **Supplementary Data** associated to the current submitted manuscript.
 
-* Supplementary Data Files 1-7 in proper format and stored in a zipped file: `Supplementary_Data_Files.zip`: 
+* Supplementary Data Files 1-7 in proper format and stored in a zipped file: `Supplementary_Data.zip`: 
 
  1) Supplementary Data 1: Population information and basic SNP statistics (TXT file).
  2) Supplementary Data 2: new nrEVEs in `fasta` sequences (TXT file).
