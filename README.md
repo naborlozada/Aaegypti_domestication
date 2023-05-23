@@ -49,6 +49,9 @@ This directory contains two files:
 * **`pnps_ratio.R`:** R script to calculate the pn/pn ratio of SNPs of a population.
 
 
+### Other scripts
+
+This directory contains scripts used for additional analyses and/or parse several results. 
 
 
 ## 
