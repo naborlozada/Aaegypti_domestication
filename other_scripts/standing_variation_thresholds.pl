@@ -70,7 +70,7 @@ my $total_unique_geneID = scalar @unique_geneID;
 my @defined_population_list = ("thies","ngoye","bantata","kedougou","mindin","pk10","dori","ouagadougou","ouahigouya","larabanga","boabengFiema","kintampo","kumasi","awka","benoue","franceville","libreville","lopeVillage","bundibugyo","entebbe","karenga","kichwamba","virhembe","kakamega","Mbarakani_village","ganda","arabuko","kayaBomu","kwale","shimbaHills","rabai_selv","rabai_dom","tapachula","bebeouro","santarem","jeddah_al-rawabi","samut_sakhon","bangkok","tafuna_village","zac_panda");
 my %population_information;
 
-my $infile_info = "/home/tigerpv_das/users_data/Nabor/Aedes-aegypti/MAIN/analysis/selection/kaks/matrices_k2p_paml/infile_popnames_to_match.txt";
+my $infile_info = "/home/nlozada/aedes_aegpypti/analyses/pnps/matrices/infile_popnames_info.txt";
 open INFILE_INFO, "$infile_info" or die "CANNOT open the infile $infile_info ~ $!\n";
 my @popNames = ();
    @popNames = <INFILE_INFO>;
@@ -99,16 +99,20 @@ print STADVAR_25PERCENT "# version: $localdate\n";
 print STADVAR_50PERCENT "# version: $localdate\n";
 print STADVAR_75PERCENT "# version: $localdate\n";
 
-print STADVAR_25PERCENT "# This file contains a list of genes under STADING VARIATION based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
-print STADVAR_50PERCENT "# This file contains a list of genes under STADING VARIATION based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
-print STADVAR_75PERCENT "# This file contains a list of genes under STADING VARIATION based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
+print STADVAR_25PERCENT "# This file contains a list of genes under STADING VARIATION (25% of all populations) based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
+print STADVAR_50PERCENT "# This file contains a list of genes under STADING VARIATION (50% of all populations) based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
+print STADVAR_75PERCENT "# This file contains a list of genes under STADING VARIATION (75% of all populations) based on a relaxed threshold of pN/pS ratio estimated using K2P approach\n";
 
 print STADVAR_25PERCENT "Percentage\tGene_ID\tTotal_Nr_Populations\tNr_African_populations\tNr_out-of-Africa_populations\tAll_populations\n";
 print STADVAR_50PERCENT "Percentage\tGene_ID\tTotal_Nr_Populations\tNr_African_populations\tNr_out-of-Africa_populations\tAll_populations\n";
 print STADVAR_75PERCENT "Percentage\tGene_ID\tTotal_Nr_Populations\tNr_African_populations\tNr_out-of-Africa_populations\tAll_populations\n";
 
+# NOTE (updated 22-may-2023)
+# Error in original annotations in first column PERCENTAGE = it shows the number of minimum number of populations 10, 20, and 30 that 
+# represent the 25, 50, and 75% of all populations, respectively. 
 
-# push( @{ $Standing_Variation_genes_extended{$geneID} }, $population );
+
+
 my $total_count_StandingVariation_genes_25PopPrcnt = 0;
 my $total_count_StandingVariation_genes_50PopPrcnt = 0;  
 my $total_count_StandingVariation_genes_75PopPrcnt = 0;
