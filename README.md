@@ -1,7 +1,7 @@
 # Aaegypti_domestication
 
 Title:
-**Molecular signature of domestication in the arboviral vector *Aedes aegypti***
+**Genomic signatures of globally invasive *Aedes aegypti* populations***
 
 **Authors:** Alejandro Nabor Lozada-Chávez, Irma Lozada-Chávez, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Luis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
 
