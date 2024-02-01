@@ -5,17 +5,17 @@
 
 ```bash
 myWDIR=/scr/core/nlozada/aedes_aegypti/scripts/;
-# list with a full path for a TXT file containing the WGS BAM alignments of each inidividual in a population 
-popLIST=my_aaeg_populations.list.txt;
-# reference genome (in fasta format)
-refGenome=/scr/core/nlozada/aedes_aegypti/reference_genome/Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta;
+outDIR=/scr/core/nlozada/aedes_aegypti/output;
+popLIST=my_aaeg_populations.list.txt;   # list with a full path for a TXT file containing the WGS BAM alignments of each inidividual in a population 
+refGenome=/scr/core/nlozada/aedes_aegypti/reference_genome/Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta;   # reference genome (in fasta format) 
+
 
 # calculate genotype likelihoods using the GATK model
 
 # main output extension will be *.saf
 for i in $popLIST; do
    POP=$(echo $i | cut -d'.' -f 1);  
-   angsd -b $i -anc $refGenome -out /scr/core/nlozada/aedes_aegypti/outputs/${POP}.angsd -ref $refGenome -minMapQ 10 -minQ 10 -minInd 1 -doSaf 1 -GL 2 -nThreads 8;
+   angsd -b $i -anc $refGenome -out $outDIR/${POP}.angsd -ref $refGenome -minMapQ 10 -minQ 10 -minInd 1 -doSaf 1 -GL 2 -nThreads 8;
    wait;
    sleep 2;
 done
@@ -26,12 +26,12 @@ wait;
 **2) Calculate the site frequency spectrum (SFS)**
 
 ```bash
-popSAFindex=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
+popSAFindex=$outDIR/*.angsd.saf.idx;
 
 # main output extension will be *.sfs
 for i in $popSAFindex; do
    POP=$(echo $i | cut -d'.' -f 1);
-   realSFS  $i  -maxiter 100  -cores 60 > ${POP}.saf2sfs.sfs 2>&1 | tee ${POP}.saf2sfs.stderr.log;
+   realSFS  $i  -maxiter 100  -cores 60  >  ${POP}.saf2sfs.sfs 2>&1 | tee ${POP}.saf2sfs.stderr.log;
    wait;
    sleep 2;
 done
@@ -47,8 +47,6 @@ Based on these mutation rates for each population, genetic diversity and diverge
 ```bash
 popSAFlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
 popSFSlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf2sfs.sfs;
-outDIR=/scr/core/nlozada/aedes_aegypti/output;
-#var1=$(echo $STR | cut -f1 -d-)
 
 # get population name from *.saf files
 for i in $popSAFlist; do
