@@ -71,14 +71,20 @@ wait;
 
 **4) Calculate summary statistics per pupulation**
 
-Global theta statitics per population were simmarize using a custom R script that simply used two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
+Global theta summary basic statitics per population were summarize per `nuncleotide diversity (π)` and `Tajima's D` using a custom R script that simply used two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
 
 ```R
 library(dplyr)
+
+# -------------------------------------------------------------------------------------------------
 infile_thetas_table <- read.csv("thetas.stats.global.txt", sep="\t", headers=TRUE);
 
+
 alpha=0.05;
-infile_thetas_table.population.thetas_stats <- as.data.frame(infile_thetas_table %>% 
+
+# nucleotide diversity (π)
+# -------------------------------------------------------------------------------------------------
+nucdiv_stats.population_chrms_thetas_scores <- as.data.frame(infile_thetas_table %>% 
                                                                     group_by(POPULATION) %>% 
                                                                                summarise(min  = min(NUC_DIVERSITY),
                                                                                          max  = max(NUC_DIVERSITY),
@@ -94,6 +100,30 @@ infile_thetas_table.population.thetas_stats <- as.data.frame(infile_thetas_table
                                                                                 ) 
                                              )
 
-# my stats:
-infile_table.population.thetas_stats
+# my stats :
+nucdiv_stats.population_chrms_thetas_scores
+
+
+
+# Tajima's D
+# -------------------------------------------------------------------------------------------------
+tajsD_stats.population_chrms_thetas_scores <- as.data.frame(infile_thetas_table %>% 
+                                                                    group_by(POPULATION) %>% 
+                                                                               summarise(min  = min(TAJIMASD),
+                                                                                         max  = max(TAJIMASD),
+                                                                                         mean = mean(TAJIMASD),
+                                                                                         sd   = sd(TAJIMASD),
+                                                                                         se   = sd(TAJIMASD)/sqrt(length(TAJIMASD)),
+                                                                                         q1   = quantile(TAJIMASD, 0.25),
+                                                                                         q3   = quantile(TAJIMASD, 0.75),
+                                                                                         t.score = qt(p=alpha/2, df=df,lower.tail=F),
+                                                                                         margin.error = t.score * se,
+                                                                                         ci.lower = mean - margin.error,
+                                                                                         ci.upper = mean + margin.error
+                                                                                ) 
+                                             )
+
+# my stats :
+tajsD_stats.population_chrms_thetas_scores
+
 ```
