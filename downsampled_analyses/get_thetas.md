@@ -47,8 +47,8 @@ popSAFlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
 popSFSlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf2sfs.txt;
 outDIR=/scr/core/nlozada/aedes_aegypti/output;
 #var1=$(echo $STR | cut -f1 -d-)
-# get population name from *.saf files
 
+# get population name from *.saf files
 for POPa in (echo $popSAFlist | cut -d'.' -f 1); do
 
     # get population name from *.sfs files
@@ -61,9 +61,9 @@ for POPa in (echo $popSAFlist | cut -d'.' -f 1); do
         }
     done;
     # global statistics:
-    thetaStat do_stat  $outDIR/${POPb}.thetas.stdout.txt > $outDIR/${POPb}.thetas.global_stats.stdout.txt 2>>  $outDIR/${POPb}.thetas.global_stats.stderr.log;
+    thetaStat do_stat  $outDIR/${POPa}.thetas.stdout.txt > $outDIR/${POPa}.thetas.global_stats.stdout.txt 2>>  $outDIR/${POPa}.thetas.global_stats.stderr.log;
     # theta site specific:
-    thetaStat print  $outDIR/${POPb}.thetas.stdout.txt > $outDIR/${POPb}.thetas.persite_stats.stdout.txt 2>>  $outDIR/${POPb}.thetas.persite_stats.stderr.log;
+    thetaStat print  $outDIR/${POPa}.thetas.stdout.txt > $outDIR/${POPa}.thetas.persite_stats.stdout.txt 2>>  $outDIR/${POPa}.thetas.persite_stats.stderr.log;
 done
 
 wait;
