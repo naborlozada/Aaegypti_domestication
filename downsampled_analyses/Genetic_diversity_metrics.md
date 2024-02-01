@@ -73,7 +73,7 @@ wait;
 
 **4) Calculate summary statistics per pupulation**
 
-Global theta summary basic statitics per population were summarize per `nuncleotide diversity (π)` and `Tajima's D` using a custom R script that simply used two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
+Global theta summary basic statistics per population were summarize for both `nuncleotide diversity (π)` and `Tajima's D` separately using a custom R script that simply uses two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
 
 ```R
 library(dplyr)
