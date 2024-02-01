@@ -27,9 +27,9 @@ wait;
 ```bash
 popSAFindex=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
 
-# main output extension will be *.saf
+# main output extension will be *.sfs
 for i in $popSAFindex; do
-   realSFS  $popSAFindex  -maxiter 100  -cores 60 > $popSAFindex.saf2sfs.txt 2>&1 | tee $popSAFindex.saf2sfs.stderr.log;
+   realSFS  $popSAFindex  -maxiter 100  -cores 60 > $popSAFindex.saf2sfs.sfs 2>&1 | tee $popSAFindex.saf2sfs.stderr.log;
    wait;
    sleep 2;
 done
@@ -44,7 +44,7 @@ Based on these mutation rates for each population, genetic diversity and diverge
 
 ```bash
 popSAFlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
-popSFSlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf2sfs.txt;
+popSFSlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf2sfs.sfs;
 outDIR=/scr/core/nlozada/aedes_aegypti/output;
 #var1=$(echo $STR | cut -f1 -d-)
 
@@ -55,7 +55,7 @@ for POPa in (echo $popSAFlist | cut -d'.' -f 1); do
     for POPb in (echo $popSFSlist | cut -d'.' -f 1); do
 
         if [[ "$POPa" == "$POPb" ]] {
-           realSFS saf2theta ${POPa}.angsd.saf.idx  -sfs ${POPb}.saf2sfs.txt  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
+           realSFS saf2theta ${POPa}.angsd.saf.idx  -sfs ${POPb}.saf2sfs.sfs  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
            wait;
            sleep 2;
         }
