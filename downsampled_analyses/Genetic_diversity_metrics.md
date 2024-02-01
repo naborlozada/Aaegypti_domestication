@@ -14,7 +14,8 @@ refGenome=/scr/core/nlozada/aedes_aegypti/reference_genome/Aedes-aegypti-LVP_AGW
 
 # main output extension will be *.saf
 for i in $popLIST; do
-   angsd -b $i -anc $refGenome -out /scr/core/nlozada/aedes_aegypti/outputs/$i.angsd -ref $refGenome -minMapQ 10 -minQ 10 -minInd 1 -doSaf 1 -GL 2 -nThreads 8;
+   POP=$(echo $i | cut -d'.' -f 1);  
+   angsd -b $i -anc $refGenome -out /scr/core/nlozada/aedes_aegypti/outputs/${POP}.angsd -ref $refGenome -minMapQ 10 -minQ 10 -minInd 1 -doSaf 1 -GL 2 -nThreads 8;
    wait;
    sleep 2;
 done
@@ -29,7 +30,8 @@ popSAFindex=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
 
 # main output extension will be *.sfs
 for i in $popSAFindex; do
-   realSFS  $popSAFindex  -maxiter 100  -cores 60 > $popSAFindex.saf2sfs.sfs 2>&1 | tee $popSAFindex.saf2sfs.stderr.log;
+   POP=$(echo $i | cut -d'.' -f 1);
+   realSFS  $i  -maxiter 100  -cores 60 > ${POP}.saf2sfs.sfs 2>&1 | tee ${POP}.saf2sfs.stderr.log;
    wait;
    sleep 2;
 done
@@ -49,13 +51,15 @@ outDIR=/scr/core/nlozada/aedes_aegypti/output;
 #var1=$(echo $STR | cut -f1 -d-)
 
 # get population name from *.saf files
-for POPa in (echo $popSAFlist | cut -d'.' -f 1); do
+for i in $popSAFlist; do
+    POPa=$(echo $popSAFlist | cut -d'.' -f 1);
 
     # get population name from *.sfs files
-    for POPb in (echo $popSFSlist | cut -d'.' -f 1); do
+    for j in $popSFSlist; do
+        POPb=$(echo $popSFSlist | cut -d'.' -f 1);
 
         if [[ "$POPa" == "$POPb" ]] {
-           realSFS saf2theta ${POPa}.angsd.saf.idx  -sfs ${POPb}.saf2sfs.sfs  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
+           realSFS saf2theta $i  -sfs $j  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
            wait;
            sleep 2;
         }
