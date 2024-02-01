@@ -1,6 +1,8 @@
 
 ## Calculate the genetic diversity and Tajima's D
 
+For each population, the site allele frequency (SAF), site frequency spectrum (SFS), and the thetas (population scaled mutation rate) for each site were calculated using the command lines shown below. When possible, calculation were implemented in parallel mode in different servers and/or clusters with high computational performance to accelerate the calculations.
+
 **1) Calculate genotype likelihoods and the site allele frequency (SAF)** 
 
 ```bash
@@ -88,7 +90,8 @@ alpha=0.05;
 # -------------------------------------------------------------------------------------------------
 nucdiv_stats.population_chrms_thetas_scores <- as.data.frame(infile_thetas_table %>% 
                                                                     group_by(POPULATION) %>% 
-                                                                               summarise(min  = min(NUC_DIVERSITY),
+                                                                               summarise(df = length(NUC_DIVERSITY)-1,
+                                                                                         min  = min(NUC_DIVERSITY),
                                                                                          max  = max(NUC_DIVERSITY),
                                                                                          mean = mean(NUC_DIVERSITY),
                                                                                          sd   = sd(NUC_DIVERSITY),
@@ -111,7 +114,8 @@ nucdiv_stats.population_chrms_thetas_scores
 # -------------------------------------------------------------------------------------------------
 tajsD_stats.population_chrms_thetas_scores <- as.data.frame(infile_thetas_table %>% 
                                                                     group_by(POPULATION) %>% 
-                                                                               summarise(min  = min(TAJIMASD),
+                                                                               summarise(df = length(TAJIMASD)-1,
+                                                                                         min  = min(TAJIMASD),
                                                                                          max  = max(TAJIMASD),
                                                                                          mean = mean(TAJIMASD),
                                                                                          sd   = sd(TAJIMASD),
