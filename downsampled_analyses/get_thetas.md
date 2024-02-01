@@ -73,3 +73,28 @@ wait;
 
 Global theta statitics per population were simmarize using a custom R script that simply used two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
 
+```R
+
+infile_table = read.csv("thetas.stats.global.txt", sep="\t", headers=TRUE);
+
+alpha=0.05;
+infile_table.population.thetas_stats <- as.data.frame(infile_table %>% 
+                                                         group_by(POPULATION) %>% 
+                                                                               summarise(min  = min(NUC_DIVERSITY),
+                                                                                         max  = max(NUC_DIVERSITY),
+                                                                                         mean = mean(NUC_DIVERSITY),
+                                                                                         sd   = sd(NUC_DIVERSITY),
+                                                                                         se   = sd(NUC_DIVERSITY)/sqrt(length(NUC_DIVERSITY)),
+                                                                                         q1   = quantile(NUC_DIVERSITY, 0.25),
+                                                                                         q3   = quantile(NUC_DIVERSITY, 0.75),
+                                                                                         # confidence intervals: https://bookdown.org/logan_kelly/r_practice/p09.html
+                                                                                         t.score = qt(p=alpha/2, df=df,lower.tail=F),
+                                                                                         margin.error = t.score * se,
+                                                                                         ci.lower = mean - margin.error,
+                                                                                         ci.upper = mean + margin.error
+                                                                                ) 
+                                             )
+
+# my stats:
+infile_table.population.thetas_stats
+```
