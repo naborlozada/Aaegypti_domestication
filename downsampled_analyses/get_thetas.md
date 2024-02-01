@@ -1,7 +1,7 @@
 
 ## Calculate the genetic diversity and Tajima's D
 
-1) Calculate genotype likelihoods and the site allele frequency (SAF) 
+**1) Calculate genotype likelihoods and the site allele frequency (SAF)** 
 
 ```bash
 myWDIR=/scr/core/nlozada/aedes_aegypti/scripts/;
@@ -22,7 +22,7 @@ done
 wait;
 ```
 
-2) Calculate the site frequency spectrum (SFS)
+**2) Calculate the site frequency spectrum (SFS)**
 
 ```bash
 popSAFindex=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
@@ -37,4 +37,39 @@ done
 wait;
 ```
   
-3) sdsdsd 
+**3) Calculate the thetas (population scaled mutation rate) for each site**
+
+Based on these mutation rates for each population, genetic diversity and divergence metrics can be calculated using subprograms `saf2theta` and `do_stat` based on [Korneliussen et al., 2013](https://doi.org/10.1186/1471-2105-14-289).
+
+
+```bash
+popSAFlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf.idx;
+popSFSlist=scr/core/nlozada/aedes_aegypti/outputs/*.angsd.saf2sfs.txt;
+outDIR=/scr/core/nlozada/aedes_aegypti/output;
+#var1=$(echo $STR | cut -f1 -d-)
+# get population name from *.saf files
+
+for POPa in (echo $popSAFlist | cut -d'.' -f 1); do
+
+    # get population name from *.sfs files
+    for POPb in (echo $popSFSlist | cut -d'.' -f 1); do
+
+        if [[ "$POPa" == "$POPb" ]] {
+           realSFS saf2theta ${POPa}.angsd.saf.idx  -sfs ${POPb}.saf2sfs.txt  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
+           wait;
+           sleep 2;
+        }
+    done;
+    # global statistics:
+    thetaStat do_stat  $outDIR/${POPb}.thetas.stdout.txt > $outDIR/${POPb}.thetas.global_stats.stdout.txt 2>>  $outDIR/${POPb}.thetas.global_stats.stderr.log;
+    # theta site specific:
+    thetaStat print  $outDIR/${POPb}.thetas.stdout.txt > $outDIR/${POPb}.thetas.persite_stats.stdout.txt 2>>  $outDIR/${POPb}.thetas.persite_stats.stderr.log;
+done
+
+wait;
+```
+
+**4) Calculate summary statistics per pupulation**
+
+Global theta statitics per population were simmarize using a custom R script that simply used two main functions, `group_by` and `summarize` from the [R `dplyr` package version 1.1.4](https://dplyr.tidyverse.org).
+
