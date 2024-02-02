@@ -22,6 +22,7 @@ for i in $myPOPS; do
     else
         echo "WARNING FILE!" $i;
     fi
+done
 
 # Create for each chrosomosome a RAiSD outout, settings:
 #    * [-y 2] doploidy 
