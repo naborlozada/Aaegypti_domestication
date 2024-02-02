@@ -62,7 +62,7 @@ for i in $popSAFlist; do
            realSFS saf2theta $i  -sfs $j  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
            wait;
            sleep 2;
-        
+        fi
     done;
     # global statistics:
     thetaStat do_stat  $outDIR/${POPa}.thetas.stdout.txt > $outDIR/${POPa}.thetas.global_stats.stdout.txt 2>>  $outDIR/${POPa}.thetas.global_stats.stderr.log;
