@@ -58,11 +58,11 @@ for i in $popSAFlist; do
     for j in $popSFSlist; do
         POPb=$(echo $popSFSlist | cut -d'.' -f 1);
 
-        if [[ "$POPa" == "$POPb" ]] {
+        if [[ "$POPa" == "$POPb" ]]; then
            realSFS saf2theta $i  -sfs $j  -outname $outDIR/${POPb}.thetas.stdout.txt 2>>  $outDIR/${POPb}.thetas.stderr.log;
            wait;
            sleep 2;
-        }
+        
     done;
     # global statistics:
     thetaStat do_stat  $outDIR/${POPa}.thetas.stdout.txt > $outDIR/${POPa}.thetas.global_stats.stdout.txt 2>>  $outDIR/${POPa}.thetas.global_stats.stderr.log;
