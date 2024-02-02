@@ -17,7 +17,7 @@ for i in $myPOPS; do
     elif [[ $i =~ chrm2 ]]; then
         RAiSD -s -R -P -D -O -A 0.905 -M 0 -y 2 -w 50 -n ${POP}.geno80.chrm2.raisd.win50 -I $i;
         wait; sleep 2;
-    elif [[ $i =~ chrm2 ]]; then
+    elif [[ $i =~ chrm3 ]]; then
         RAiSD -s -R -P -D -O -A 0.905 -M 0 -y 2 -w 50 -n ${POP}.geno80.chrm3.raisd.win50 -I $i; 
     else
         echo "WARNING FILE!" $i;
