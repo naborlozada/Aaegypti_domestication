@@ -59,4 +59,4 @@ RAiSD -s -R -P -D -O -A 0.905 -M 0 -y 2 -w 50 -n ${POP}.geno80.chrm2.raisd.win50
 RAiSD -s -R -P -D -O -A 0.905 -M 0 -y 2 -w 50 -n ${POP}.geno80.chrm3.raisd.win50 -I mainVCF -S popList.human_feeding.txt;
 ```
 
-use the R script `Rscript_parse_RAiSD_outout.R` to parse and obtain outliers with statistical support.
+use the R script `outliers_RAiSD.R` to parse and obtain outliers with statistical support.
