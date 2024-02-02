@@ -1,7 +1,7 @@
 
 ## Calculate the genetic diversity and Tajima's D
 
-For each population, the site allele frequency (SAF), site frequency spectrum (SFS), and the thetas (population scaled mutation rate) for each site were calculated using the command lines shown below. When possible, calculation were implemented in parallel mode in different servers and/or clusters with high computational performance to accelerate the calculations.
+For each population, the site allele frequency (SAF), site frequency spectrum (SFS), and the thetas (population scaled mutation rate) for each site were calculated using the command lines shown below. All programs executions (runs below) were implemented in parallel mode in different servers and/or clusters with high computational performance to accelerate the calculations.
 
 **1) Calculate genotype likelihoods and the site allele frequency (SAF)** 
 
