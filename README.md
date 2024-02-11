@@ -9,13 +9,18 @@ Title:
 
 --- 
 
-<ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Zenodo`**) and the preprint **bioRxiv** paper.</ins>
+<ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Github (commit 58e8ace)` and `Zenodo`**) and the preprint **bioRxiv** paper.</ins>
 
   **Repository/scripts citation:**\
    [![DOI](https://zenodo.org/badge/630563603.svg)](https://zenodo.org/badge/latestdoi/630563603)
-   * Nabor Lozada. (2023). naborlozada/Aaegypti_domestication: Aaegypti_domestication (v0.1b). Zenodo. https://doi.org/10.5281/zenodo.7863456
+   * Nabor Lozada. (2023). Aedes aegypti domestication (v0.3). Zenodo. https://doi.org/10.5281/zenodo.7863456
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
 
+##
+## NOTICE (updated 15-Jan-2024):
+1) **Downsampling** description files and scripts were included in this version in the <ins>**downsampled_analyses** directory</ins>.
+2) **Population Branch Statistics  (PBS)** description file and scripts were included in this version in the <ins>**downsampled_analyses** directory</ins>.
+3) **Detection of hard selective sweeps** description files and scripts associated to the new integrated approach **RAiSD** were included in the <ins>**Selection** directory</ins>. 
 ##
 ## NOTICE (updated 22-May-2023):
 1) **Supplementary Data** associated to the current submmitted version of the manuscript is in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is below. 
