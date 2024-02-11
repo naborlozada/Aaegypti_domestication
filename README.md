@@ -9,7 +9,7 @@ Title:
 
 --- 
 
-<ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Github (commit 58e8ace)` and `Zenodo`**) and the preprint **bioRxiv** paper.</ins>
+<ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Github (commit 20692d7)` and `Zenodo`**) and the preprint **bioRxiv** paper.</ins>
 
   **Repository/scripts citation:**\
    [![DOI](https://zenodo.org/badge/630563603.svg)](https://zenodo.org/badge/latestdoi/630563603)
