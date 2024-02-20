@@ -6,7 +6,7 @@
 #            nabor.lozada@gmail.com                #
 # ------------------------------------------------ #
 
-# Part of these scripting lines were obtained from the course "Computational Genomics".
+# Part of these scripting lines were obtained from the course "Computational Genomics GEN8900".
 # Additional modifications were written afterwards. 
 
 
