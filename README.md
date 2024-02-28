@@ -12,7 +12,8 @@ Title:
 <ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Github (commit 20692d7)` and `Zenodo`**) and the preprint **bioRxiv** paper.</ins>
 
   **Repository/scripts citation:**\
-   [![DOI](https://zenodo.org/badge/630563603.svg)](https://zenodo.org/badge/latestdoi/630563603)
+   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.10721413)
+   
    * Nabor Lozada. (2023). Aedes aegypti domestication (v0.3). Zenodo. https://doi.org/10.5281/zenodo.7863456
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
 
