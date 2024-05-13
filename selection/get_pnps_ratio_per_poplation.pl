@@ -178,7 +178,7 @@ sub GoDown1{
                             print  "WARNING!!\t$MAJOR_GROUP\t$line\n";
                         }
                         
-                        ## CUTOFF
+                        ## SELECTION THRESHOLDS
                         # /// ------------------------------------------------------------------------------------------------------------------------------------ /// #
                         my $neutrality_T3_1A = 0.80;   my $neutrality_T3_1B = 1.20;
 
@@ -187,12 +187,10 @@ sub GoDown1{
                         elsif ($OMEGA >= $neutrality_T3_1A && $OMEGA <= $neutrality_T3_1B && $OMEGA!~/^NA$/) {  $selectionType_FLAG3 = "nearly_neutral";   }
                         elsif ($OMEGA >  $neutrality_T3_1B && $OMEGA <= 1.50 && $OMEGA!~/^NA$/)              {  $selectionType_FLAG3 = "weak_positive";    }
                         elsif ($OMEGA > 1.50 && $OMEGA!~/^NA$/)                                              {  $selectionType_FLAG3 = "strong_positive";  }
-                        elsif ($OMEGA=~/^NA$/)                                                               {  $selectionType_FLAG3 = "ERROR"; }
+                        elsif ($OMEGA=~/^NA$/)                                                               {  $selectionType_FLAG3 = "ERROR_NO_VALUE"; }
                         else {  print "WARNING_THRESHOLD_3:\r$line\n";;  }
                         # /// ------------------------------------------------------------------------------------------------------------------------------------ /// #
                         
-
-
 
                         my $selection_type_SD7 = $selectionType_T3;
                            $selection_type_SD7 =~ s/\[//gis;
