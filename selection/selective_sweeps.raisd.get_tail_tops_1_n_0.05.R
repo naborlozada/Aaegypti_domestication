@@ -3,11 +3,11 @@
 
 # Description
 # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# R script to identify outliers analyzing the RAiSD outout for a single chromosome. It performs two main cutoffs on the output and creates, for each cutoff, two output file containing
+# all analyzed windowed sites and two BED outfiles to be used for mapping against the reference genome of Ae. aegypti (AaegL5).
 #
-# RUN R using version 4.3.1:
-# /path/to/R_binaries/R-4.3.1/bin/R
-#
-#
+# RUN R script as follows (version 4.3.1):
+# /path/to/R_binaries/R-4.3.1/bin/Rscript selective_sweeps.raisd.get_tail_tops_1_n_0.05.R
 # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
