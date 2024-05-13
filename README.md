@@ -19,7 +19,7 @@ Title:
 
 ##
 ## NOTICE (updated 13-May-2024):
-1) **selection** In this directory, six scripts and a summary step protocol were added, and they are related to the <ins>**detection of outliers based on the selection of a top 0.05% and 1% of a tail distribution** of `RAiSD` results and to the **detection of selection using PAML**. See `selection` directory for details.</ins>.
+1) **selection** In this directory, six scripts and a summary step protocol were added, and they are related to the <ins>**detection of outliers based on the selection of a top 0.05% and 1% of a tail distribution** of `RAiSD` results, and to the **detection of selection in coding protein genes using PAML**. See `selection` directory for details.</ins>.
 2) The Supplementary Data ZIP file was updated. See changes in the **Supplementary Data** directory.
 3) SRA name of each samples were added to the Supplementary Table 1 (BioProject: PRJNA943178).
 ##
