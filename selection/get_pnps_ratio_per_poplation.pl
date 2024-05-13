@@ -14,30 +14,25 @@ my $main_FULL_DIR  = "";
 
 my %MAJOR_POPULATION_GROUPS;
 my %aegypti_consensus_sequences;
-
 my %HASH_ORTHOLOGS_GENES;
 
 
 
 
-# prev: aedes_aegypti_local_adaptation.yn_count_model
+# Outfile
+# ---------------------------------------------------------------------------------------------------------------------------------------------------
 my $main_OUTPUT_DIR = "/path/to/results/selection_dnds/parsed_results";
-my $pal2nal = "/path/to/software_scripts/pal2nal.v14/pal2nal.pl";
-my $fas2axt = "/path/to/results/selection_dnds/scripts/selection.GLOBAL.pairwise/parseFastaIntoAXT.pl";
-
-
 my $outfile_dnds_selection_YN00_SUPPL_DATA_7 = "aedes_aegypti.populations.local_selection.dNdS.main_table.whole_genome.gene_scores.PAML_basic_info.SUPPL_DATA_7.txt";
 
 system "rm $main_OUTPUT_DIR/$outfile_dnds_selection_YN00_SUPPL_DATA_7";
-
 open OUTFILE_SUPPLEMENTARY_DATA_SEVEN, ">>$main_OUTPUT_DIR/$outfile_dnds_selection_YN00_SUPPL_DATA_7" or die "CANNOT open the OUTFILE_SUPPLEMENTARY_DATA_SEVEN $outfile_dnds_selection_YN00_SUPPL_DATA_7 ~ $! \n";
 print OUTFILE_SUPPLEMENTARY_DATA_SEVEN "LOCATION\tCOUNTRY\tPOPULATION\tAeAEGYPTI_GENE_ID\tAeALBOPICTUS_GENE_ID\tSELECTION_TYPE\tNON_SYNONYMOUS_N\tSYNONYMOUS_D\tOMEGA\tNON_SYNONYMOUS_N_RATIO\tSYNONYMOUS_D_RATIO\tKAPPA\tt_VALUE\n";
 
 
   
-
-
-my $ortholgues_genes_list = "/path/to/results/selection_dnds/parsed_results/aedes_aegypti.orthologues_genes.ae_aegypti__vs__ae_albopictus.whole_genome_comparison.two_assemblies.table.txt";
+# orthologs
+# ---------------------------------------------------------------------------------------------------------------------------------------------------
+my $ortholgues_genes_list = "/path/to/results/selection_dnds/parsed_results/aedes_aegypti.orthologues_genes.ae_aegypti__vs__ae_albopictus.whole_genome_comparison.table.txt";
 
 open ORTHO_GENES_LIST, "$ortholgues_genes_list" or die "CANNOT open the INFILE `ORTHO_GENES_LIST` ~ $!\n";
 my @orthos_genes = ();
@@ -156,8 +151,7 @@ sub GoDown1{
                 #print "$MAJOR_GROUP\t$country\t$population\t$targetfile\n";
 
 
-                open INFILE, "$targetfile" or die "CANNOT open INFILE $targetfile ~ $!\n";             
-                
+                open INFILE, "$targetfile" or die "CANNOT open INFILE $targetfile ~ $!\n";
 
                 # MAIN
                 # ------------------------------------------------------------------------------------------
