@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 
-
+# PERL SCRIPT TO PARSE LOCAL SELECTION RAiSD ANAYSIS
 
 
 
@@ -15,7 +15,7 @@ my %POPULATION_RAISD_GENES_counts_strands;
 my %POPULATION_GEO_INFORMATION;
 
 
-my $population_information = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/aedes-aegypti.aaegL5.main.all_populations.general_information.byPopulation.updated_2023.tbl";
+my $population_information = "/path/to/RAiSD/infiles/aedes-aegypti.aaegL5.main.all_populations.general_information.byPopulation.updated_2023.tbl";
 
 open POP_INFO, $population_information or die "CANNOT open the infile `POP_INFO` ~ $! \n";
 my @population_table_info = ();
@@ -45,7 +45,7 @@ foreach my $line (@population_table_info) {
 
 # read directories
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
-my @main_directory = qw(/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/paper_NEE_rebuttal/raisd.changes_rebuttal.2024/raisd.redo_local.scripts_n_outputs/outputs/);
+my @main_directory = qw(/path/to/RAiSD/outfiles/raisd.redo_local/outputs/);
 
 foreach my $i (@main_directory){
     chdir $i;
@@ -129,8 +129,8 @@ my @full_geneset_list_1;
 
 # OUTFILES SET 1: General info of each single gene outlier per population:
 # ---------------------------------------------------------------------------------------------------------
-my $result_sweeps_raisd_populations_thres_05_outliers = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/paper_NEE_rebuttal/raisd.changes_rebuttal.2024/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_05.main.genes_n_outliers_info.v2.txt";
-my $result_sweeps_raisd_populations_thres_1_outliers  = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/paper_NEE_rebuttal/raisd.changes_rebuttal.2024/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_1.main.genes_n_outliers_info.v2.txt";
+my $result_sweeps_raisd_populations_thres_05_outliers = "/path/to/RAiSD/outfiles/main/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_05.main.genes_n_outliers_info.txt";
+my $result_sweeps_raisd_populations_thres_1_outliers  = "/path/to/RAiSD/outfiles/main/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_1.main.genes_n_outliers_info.txt";
 
 system "rm $result_sweeps_raisd_populations_thres_05_outliers  $result_sweeps_raisd_populations_thres_1_outliers";
 
@@ -144,8 +144,8 @@ print OUTFILE_GENES_N_OUTLIERS_ALL_1 "Group\tCutoff\tCountry\tPopulation\tGeneID
 
 # OUTFILES SET 2: Gene (outliers) distribution across populations as either shared or specific:
 # ---------------------------------------------------------------------------------------------------------
-my $result_sweeps_raisd_populations_thres_05_genes_PaP = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/paper_NEE_rebuttal/raisd.changes_rebuttal.2024/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_05.main.genes_PaP_info.v2.txt";
-my $result_sweeps_raisd_populations_thres_1_genes_PaP  = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/programs/scripts/running_on_slurm/paper_NEE_rebuttal/raisd.changes_rebuttal.2024/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_1.main.genes_PaP_info.v2.txt";
+my $result_sweeps_raisd_populations_thres_05_genes_PaP = "/path/to/RAiSD/outfiles/main/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_05.main.genes_PaP_info.txt";
+my $result_sweeps_raisd_populations_thres_1_genes_PaP  = "/path/to/RAiSD/outfiles/main/raisd.redo_local.scripts_n_outputs/outputs/aedes_aegypti.populations.chrms123.selective_sweeps.raisd.parsed_results.thres_1.main.genes_PaP_info.txt";
 
 system "rm $result_sweeps_raisd_populations_thres_05_genes_PaP  $result_sweeps_raisd_populations_thres_1_genes_PaP";
 
@@ -359,12 +359,6 @@ foreach my $geneID (@full_geneset_list_1_unique) {
     }
 }
 close OUTFILE_GENES_PAP_1;
-
-
-
-
-
-
 
 
 
