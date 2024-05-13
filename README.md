@@ -84,5 +84,5 @@ This directory contains the files related to **Supplementary Data** associated t
  4) Supplementary Data 4: 10,030 SNP outliers associated to 2,266 genes are provided in `VCF` format (\*.VCF.GZ file).
  5) Supplementary Data 5: Matrix with the pN/pS gene ratio across the whole genome of *Ae. aegypti* using the improved method of Li's Kimura 2 Parameters (K2P) approach (TXT file).
  6) Supplementary Data 6: SNP dataset obtained from the literature to recalibrate genomes (TXT file).
- 7) Supplementary Data 7: Table with the pN/pS gene ratio across the whole genome of *Ae. aegypti* using the PAML protocol approach (TXT file).
+ 7) Supplementary Data 7: Table with the pN/pS gene ratio across the whole genome of *Ae. aegypti* using the PAML protocol approach and the *Ae. albopictus* species as a sister species (TXT file).
 
