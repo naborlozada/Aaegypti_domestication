@@ -129,7 +129,7 @@ cat("\n>>> target file: ", full_path_Report, "\n\n");
 
 
 
-# get a core filename:
+# get a core filename (only applies when a full long path file is provided):
 CORE_FILE_NAME <- sapply(strsplit(myData, ".", fixed = TRUE), function(x){paste(x[[2]], x[[3]], x[[16]], sep=".")});
 
 
