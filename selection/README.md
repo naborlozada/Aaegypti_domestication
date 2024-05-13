@@ -26,10 +26,11 @@ These scripts are divided in those used to detect outliers based on (1) the maha
 * **`pnps_ratio.R`:** R script to calculate the pn/pn ratio of SNPs of a population.
 
 (2) Based on the divergence between two sister species: Ae. aegypti and Ae. albopictus using YN model from PAML. 
-* `detection_of_selection_PAML.md` Summary protocol steps
-* `merge_orthologues_genes.pl` PERL script ot join two orthologs genes in a single fasta file. 
-* `GENEID_yn00.ctl` Infile for PAML YN model (YN_model.ctl). 
- 
+* **`detection_of_selection_PAML.md`** Summary protocol steps and the script used to calculate the pN/pS ratio for each protein coding gene (>500,000) in each single population.
+* **`merge_orthologues_genes.pl`** PERL script ot join two orthologs genes in a single fasta file.
+* **`GENEID_yn00.ctl`** Infile for PAML YN model (YN_model.ctl). 
+* **`get_pnps_ratio_per_poplation.pl`** PERL script that extract the pN/pS statistics from PAML analysis and sort them for each single gene present in a population, as well as defined the type of selection based on the threshold defined in `Methods section` of this paper.
+
 
 ##
 Comment on the **Update for the rebuttal 2024**\
