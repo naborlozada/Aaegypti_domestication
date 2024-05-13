@@ -58,7 +58,6 @@ foreach my $gene_line (@orthos_genes) {
 
 
 
-
 # groups
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
 my $groups_file = "path/to/results/selection_dnds/scripts/selection.GLOBAL.pairwise/aedes_aegypti.populations_information.groups_n_geography.tbl.txt";
@@ -108,10 +107,8 @@ foreach my $line (@groups) {
 
 
 
-
 # read directories
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
-
 my @main_directory_VCFs = qw(/path/to/results/selection_dnds/parsed_results/);
 
 foreach my $i (@main_directory_VCFs){
@@ -123,7 +120,6 @@ foreach my $i (@main_directory_VCFs){
     &GoDown1(@subdir);
     closedir DIR;
 }
-
 
 
 # >>> GO-GO to NEXT SUBDIR >>>
@@ -170,7 +166,6 @@ sub GoDown1{
                     my $line = $_;
 
                     my $selectionType_FLAG3;
-                    my ($geneID,$Ka,$Ks,$KaKs,$Pval,$signif) = ("","","","","","");
 
                     if ($line!~/^\#.+/ && $line!~/^POP_TARGET.+/) {
                         my ($POP_TARGET,$COUNTRY,$POPULATION,$GENE_ID1,$GENE_ID2,$NON_SYNONYMOUS_N,$SYNONYMOUS_D,$OMEGA,$NON_SYNONYMOUS_N_RATIO,$SYNONYMOUS_D_RATIO,$KAPPA,$t_VALUE) = split /\t/, $line;
@@ -212,7 +207,6 @@ sub GoDown1{
         }
     }
 }
-close OUTFILE_GENE_DNDS_SELECTION;
 close OUTFILE_SUPPLEMENTARY_DATA_SEVEN;
 
 
