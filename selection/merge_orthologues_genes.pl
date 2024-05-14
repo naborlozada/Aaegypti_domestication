@@ -7,8 +7,9 @@
 # put them together in a single fasta file. This process is repeated across all genes from Ae. aegypti havind orthologues gene (~12,000) detected in a TARGET POPULATION.
 #
 #    Note that the protein coding genes from Ae. aegypti were first extracted from SNPs in VCF files of each population using the python program "vcf2fasta" from Santiago Sanches
-# (https://github.com/santiagosnchez/vcf2fasta.git) (SEQUENCES_DB1). Then, the protein coding genes from Ae. albopictus were extracted from the reference genomes from VectorBase (aseemblies
-# AalbF and AalbFPA version 51 and 61, respectively)  (SEQUENCES_DB2). Overall, this PERL script find and merge orthologs searching between datasets SEQUENCES_DB1 and SEQUENCES_DB2.
+# (https://github.com/santiagosnchez/vcf2fasta.git) (SEQUENCES_DB1). Then, the protein coding genes from Ae. albopictus were extracted from the reference genomes from VectorBase
+# (aseemblies AalbF and AalbFPA version 51 and 61, respectively)  (SEQUENCES_DB2). Overall, this PERL script find and merge orthologs searching between datasets SEQUENCES_DB1 and
+#  SEQUENCES_DB2.
 #
 # The program requires only argument: Population target name.
 # ------------------------------------------------------------------------------------------------------------------------------------------------
