@@ -4,8 +4,8 @@
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # Description:
 #     PERL script that reads one Population directory (among many) and foreach fasta file havind a protein coding gene from Ae. aegypti, finds its ortholog and 
-# put them together in a single fasta file. This process is repeated across all genes from Ae. aegypti havind orthologues gene (~12,000).  
-#   
+# put them together in a single fasta file. This process is repeated across all genes from Ae. aegypti havind orthologues gene (~12,000) detected in a TARGET POPULATION.  
+#
 # The program requires only argument: Population target name.
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -22,9 +22,9 @@ use warnings;
 # MY TARGET
 if ($#ARGV<0) {
     print "\n\tUsage:  selection.global.dnds.1.merge_cons_by_pops_ARGS.stable_version.pl  POP_NAME \n";
-    print "\nOnly one argument is mandatory: POP_NAME = Population target name. Example:\n\tperl selection.global.dnds.1.merge_cons_by_pops_ARGS.stable_version.pl  [POP_NAME]\n\n";
+    print "\nOnly one argument is mandatory: POP_NAME = Population target name. Example:\n\tperl merge_orthologues_genes.pl  [POP_NAME]\n\n";
     exit (0);
-}  
+}
 
 # example
 #my $POP_TARGET = "kenya.virhembe_CDS";
@@ -49,7 +49,7 @@ my $population_DIR = "";
 my $main_DIR       = "";
 my $main_FULL_DIR  = "";
 
-my $main_OUTPUT_DIR = "/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/results/selection_dnds/aedes_aegypti_local_adaptation.yn_count_model";
+my $main_OUTPUT_DIR = "/path/to/aedes_aegypti/results/selection_dnds/aedes_aegypti_local_adaptation.yn_count_model";
 
 my %MAJOR_POPULATION_GROUPS;
 my %aegypti_consensus_sequences;
@@ -274,7 +274,7 @@ print "Done parsing Ae. aegypti orthologous genes from Ae. albopictus. Ready to 
 
 
 
-# read directories
+# read main directory with all data separately by populations. 
 # ---------------------------------------------------------------------------------------------------------------------------------------------------
 my @main_directory_VCFs = qw(/path/to/results/selection_dnds/aedes_aegypti_local_adaptation.yn_count_model/);
 
@@ -300,20 +300,20 @@ sub VCFGoDown1{
 
         foreach my $j (@subdir2){
 
-            if ($j!~/^\.$/ && $j!~ /^\.\.$/ && $j!~/^\.listing$/ && $j!~/readme/ && $j!~/^.+\.log$/ && $j!~/varcalls.selection.scripts/ && $j!~/QuentinRougemont/ && $j!~/varcalls.selection.scripts/ && $j eq $POP_TARGET ) {
-		        my ($country,$population,$chromosome);
+            if ($j!~/^\.$/ && $j!~ /^\.\.$/ && $j!~/^\.listing$/ && $j!~/readme/ && $j!~/^.+\.log$/ && $j eq $POP_TARGET ) {
+		my ($country,$population,$chromosome);
                 #$country    = $1;
                 $population = $j;
                 #$chromosome = $3;
                 my $subpwd = "/path/to/results/selection_dnds/aedes_aegypti_local_adaptation.yn_count_model/$j/";
-		            $main_DIR=$j;
+	        $main_DIR=$j;
                 $main_FULL_DIR = $subpwd; 
                 $main_FULL_DIR =~ s/\/$//g;
                 chdir $subpwd;
                 opendir SUBDIR, $subpwd or die "CANNOT open the SUB-DIR $subpwd - $! \n";
                 
                 my @files2=();
-		            @files2=readdir SUBDIR;
+		@files2=readdir SUBDIR;
                 #print "[2] [$subpwd]\t|$j|\n";
                 &VCFGoGoDown2(@files2);
                 closedir SUBDIR;
@@ -333,14 +333,14 @@ sub VCFGoGoDown2{
         my @subdir2= sort {lc($a) cmp lc($b)} @subdir;
 
         my $POPdir = $main_DIR;
-        #   $POPdir =~ s/\_CDS$//g;
-
-
+        #$POPdir =~ s/\_CDS$//g;
+	
+	
         foreach my $j (@subdir2){
             chomp $j;
-            my ($codon_alignment,$consensus,$codon_aln,$aa_aln) = ("","");
+            my ($codon_alignment,$consensus,$codon_aln,$aa_aln) = ("","","","");
 
-            # single consensus for a protein coding gene of a single population (~14,000 genes)
+            # single consensus for a protein coding gene of a single population (~12,000 genes)
             # ------------------------------------
             if ( $j!~ /^\.$/ && $j!~ /^\.\.$/ && $j!~ /^\.listing$/ && $j!~/.+\.fasta$/ && $j!~/(AAEL\d+)\.fas$/ && $j=~/(.+)\.cons\.fas$/ ) {
                 $consensus = $j;
