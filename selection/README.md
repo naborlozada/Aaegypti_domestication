@@ -34,7 +34,15 @@ These scripts are divided in those used to detect outliers based on (1) the maha
 
 ##
 Comment on the **Update for the rebuttal 2024**\
-Two additional scripts that were used to performed the outlier detection based on the top 0.05% and 1% tail distribution of the RAiSD results were added in this directory:
+Two additional scripts that were used to performed the outlier detection based on the top 0.05% and 1% tail distribution of the RAiSD results were added in this directory:\
+\
+**RAiSD**
 * R script: `selective_sweeps.raisd.LOCAL.get_tail_tops_1_n_0.05.R`.
 * PERL script: `gene_distribution_across_Africa_and_Out_of_Africa.LOCAL_RAiSD_analysis.pl`.
-    
+
+**pN/pS ratio**
+* `detection_of_selection_PAML.md`
+* `merge_orthologues_genes.pl`
+* `GENEID_yn00.ctl`
+* `get_pnps_ratio_per_poplation.pl`
+
