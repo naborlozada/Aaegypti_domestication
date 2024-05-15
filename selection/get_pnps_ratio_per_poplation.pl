@@ -190,7 +190,7 @@ sub GoDown1{
                            $selection_type_SD7 =~ s/\[//gis;
                            $selection_type_SD7 =~ s/\]//gis;
                            
-                        print OUTFILE_SUPPLEMENTARY_DATA_SEVEN "$MAJOR_GROUP\t$COUNTRY\t$POPULATION\t$GENE_ID1\t$orthologous_Albopictus\$selectionType_FLAG3\t$NON_SYNONYMOUS_N\t$SYNONYMOUS_D\t$OMEGA\t$NON_SYNONYMOUS_N_RATIO\t$SYNONYMOUS_D_RATIO\t$KAPPA\t$t_VALUE\n";
+                        print OUTFILE_SUPPLEMENTARY_DATA_SEVEN "$MAJOR_GROUP\t$COUNTRY\t$POPULATION\t$GENE_ID1\t$orthologous_Albopictus\t$selectionType_FLAG3\t$NON_SYNONYMOUS_N\t$SYNONYMOUS_D\t$OMEGA\t$NON_SYNONYMOUS_N_RATIO\t$SYNONYMOUS_D_RATIO\t$KAPPA\t$t_VALUE\n";
 
                 }
                 close INFILE;
