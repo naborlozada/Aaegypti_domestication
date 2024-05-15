@@ -26,7 +26,7 @@ use warnings;
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # MY TARGET
 if ($#ARGV<0) {
-    print "\n\tUsage:  selection.global.dnds.1.merge_cons_by_pops_ARGS.stable_version.pl  POP_NAME \n";
+    print "\n\tUsage:  merge_orthologues_genes.pl  POP_NAME \n";
     print "\nOnly one argument is mandatory: POP_NAME = Population target name. Example:\n\tperl merge_orthologues_genes.pl  [POP_NAME]\n\n";
     exit (0);
 }
@@ -176,7 +176,7 @@ sub GoDown1{
 
             if ($j!~/^\.$/ && $j!~ /^\.\.$/ && $j!~/^\.listing$/ && $j!~/readme/ && $j!~/^.+\.log$/) {
                 my $subpwd = "/path/to/output/orthologs/aaegL5_vs_aalboX/genomes/sequence_extraction/$j/";
-		            $main_DIR=$j;
+		$main_DIR=$j;
                 $main_DIR=~s/\_CDS$//gis;
                 $main_FULL_DIR = $subpwd; 
                 $main_FULL_DIR =~ s/\/$//g;
@@ -184,7 +184,7 @@ sub GoDown1{
                 opendir SUBDIR, $subpwd or die "CANNOT open the SUB-DIR $subpwd - $! \n";
                 
                 my @files2=();
-		            @files2=readdir SUBDIR;
+		@files2=readdir SUBDIR;
                 #print "[2] [$subpwd]\t|$j|\n";
                 &GoGoDown2(@files2);
                 closedir SUBDIR;
