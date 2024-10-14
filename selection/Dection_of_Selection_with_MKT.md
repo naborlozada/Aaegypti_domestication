@@ -29,6 +29,14 @@ done
 
 
 ## /// Step 4 ///
-perl 
+my $
+
+for i in  CDS_POP;
+   cd $i;
+   infile.cds.fasta = $i;
+   for j in infile.cds.fasta;
+      java -jar macse.jar $j  
+
+
 
 ## /// Step 5 ///
