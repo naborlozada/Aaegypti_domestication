@@ -6,19 +6,29 @@
 4. Codon alignments were created and refined using 'macse' v2.07, and verified with 'pal2nal' program.
 5. We used the 'iMKT' R package and scripts provided by the [Murga-Moreno etal 2019: iMTK group paper](https://academic.oup.com/nar/article/47/W1/W283/5488529?login=false) to detect signals of Selection on each single gene alignment in each population of Africa and Out of Africa.
 
-Step 1:
 ```bash
+## /// Step 1 ///
 
 # Blast + clustering similarities:
 proteinortho_grab_proteins.pl -tofiles protein_ortho_aaegL5_vs_alboFs.proteinortho.tsv  'Aedes-aegypti-LVP_AGWG_AaegL5_2.longest_isoforms.faa'  'VectorBase-55_AalbopictusFoshanFPA.longest_isoforms.faa'  'VectorBase-61_AalbopictusFoshan.longest_isoforms.faa'  -p=blastp+  -cpus=60  -sim=1  -18 singles  -xml  -identity=0.25  -coverage=50  -evalue=0.00001
 
 # Orthology
 proteinortho_clustering  protein_ortho_aaegL5_vs_alboFs.blast-graph  >  protein_ortho_aaegL5_vs_alboFs.proteinortho-graph.main_output.txt
-```
 
 
-Ste2:
+## /// Step 2 & 3 ///
 ```bash
-bcftools consensus  --fasta-ref Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta  --output populations_DIR/american_samoa.tafuna_village_CDS/sample1.vcf2fas.ref_genome.fasta /scr/k80san3/ilozada/aedes_aegypti/NEE_paper/results/selection_dnds/populations_vcffastas_mktest/populations.vcfs.single_sample_splits/american_samoa.tafuna_village_CDS/American11.vcf.gz
+$CDS_POPS=/home/nlozada/aaegypti/all_downsampled_pops/alignments/*_CDS
 
-```
+for i in CDS_POP;
+   pop_fasta_genome = ${i}.fasta;
+   pop_VCF_name = ${i}.vcf.gz;
+   bcftools consensus  --fasta-ref Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.fasta  --output $pop_fasta_genome  $pop_VCF_name;
+   agat_sp_extract_sequences.pl -g Aedes-aegypti-LVP_AGWG_CHROMOSOMES.AaegL5_2.GFF3 -f $pop_fasta_genome -type cds
+done
+
+
+## /// Step 4 ///
+perl 
+
+## /// Step 5 ///
