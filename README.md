@@ -20,8 +20,8 @@ Title:
 
 ##
 ## NOTICE (updated 3-October-2024):
-1) **Selection** In this directory, a single MD file describing the approach to detect Selection on protein coding genes based on both, the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS). First, single short text steps are decribed from the detection of orthologs, codon alignments, and both analyses of MKT and DoS. Next, a summary of each step in bash scripting languages for orthologs detection and codon alignments, and both analyses, MKT and DoS, in R code context MD format.
-2) **Supplementary Data** associated to the current submmitted version of the manuscript was updated and is located in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is at the bottom of this page.
+1) **Selection.** In this directory, a single MD file describing the approach to detect Selection on protein coding genes based on both, the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS). First, single short text steps are decribed from the detection of orthologs, codon alignments, and both analyses of MKT and DoS. Next, a summary of each step in bash scripting languages for orthologs detection and codon alignments, and both analyses, MKT and DoS, in R code context MD format.
+2) **Supplementary Data (SD).** SD associated to the current submmitted version of the manuscript was updated and is located in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is at the bottom of this page.
 3) All data (raw and supplementary data) and scripts associated to the detection of selection using **pn/ps** and **dn/ds from PAML** described in the previous submitted manuscript were completely removed.
 ##
 ## NOTICE (updated 13-May-2024):
