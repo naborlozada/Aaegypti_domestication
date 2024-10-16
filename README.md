@@ -17,6 +17,11 @@ Title:
    * Nabor Lozada. (2024). Aedes aegypti domestication (v0.4). Zenodo. https://doi.org/10.5281/zenodo.10721413
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
 
+
+##
+## NOTICE (updated 3-October-2024):
+1) **selection** In this directory, a single MD file describing the approach to detect Selection on protein coding genes based on both, the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS). First, single short text steps are decribed from the detection of orthologs, codon alignments, and both analyses of MKT and DoS. Next, a summary of each step in bash scripting languages for orthologs detection and codon alignments, and both analyses, MKT and DoS, in R code context MD format.
+2) **Supplementary Data** associated to the current submmitted version of the manuscript was updated and is located in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is at the bottom of this page. 
 ##
 ## NOTICE (updated 13-May-2024):
 1) **selection** In this directory, six scripts and a summary step protocol were added, and they are related to the <ins>**detection of outliers based on the selection of a top 0.05% and 1% of a tail distribution** of `RAiSD` results, and to the **detection of selection in coding protein genes using PAML**. See **selection** directory for details.</ins>.
@@ -93,11 +98,14 @@ This directory contains the files related to **Supplementary Data** associated t
 
 * Supplementary Data Files 1-7 in proper format and stored in a zipped file: `Supplementary_Data_Files.zip`: 
 
- 1) Supplementary Data 1: Population information and basic SNP statistics (TXT file).
- 2) Supplementary Data 2: new nrEVEs in `fasta` sequences (TXT file).
- 3) Supplementary Data 3: two phylogenetic trees, based on individuals (RAxML) and populations (Treemix), are provided in `newick` format (TXT file).
- 4) Supplementary Data 4: 10,030 SNP outliers associated to 2,266 genes are provided in `VCF` format (\*.VCF.GZ file).
- 5) Supplementary Data 5: Matrix with the pN/pS gene ratio across the whole genome of *Ae. aegypti* using the improved method of Li's Kimura 2 Parameters (K2P) approach (TXT file).
- 6) Supplementary Data 6: SNP dataset obtained from the literature to recalibrate genomes (TXT file).
- 7) Supplementary Data 7: Table with the pN/pS gene ratio across the whole genome of *Ae. aegypti* using the PAML protocol approach and the *Ae. albopictus* species as a sister species (TXT file).
+ 1) Supplementary Data 1. SNP statistics for populations through genomic regions (TXT).
+ 2) Supplementary Data 2. Sequences of new detected nrEVEs (FASTA).
+ 3) Supplementary Data 3. Phylogenetic trees for populations and individuals (NEWICK).
+ 4) Supplementary Data 4. Information for 8,148 hard selective sweeps detected with RAiSD in out-of-Africa populations (TXT).
+ 5) Supplementary Data 5. Information for 1,030 SNP outliers detected with PCAdapt within 2,266 genes (VCF format).
+ 6) Supplementary Data 6. Matrix with DoS scores for 11,651 orthologous protein-coding genes in AaegL5 and each Ae. aegypti population (TXT).
+ 7) Supplementary Data 7. Matrix with MKT scores for 11,651 orthologous protein-coding genes in AaegL5 and each Ae. aegypti population (TXT).
+ 8) Supplementary Data 8. Matrix with DoS scores used to estimate relaxed selection (TXT).
+ 9) Supplementary Data 9. Genomic coordinates of SNPs in AaegL5 obtained from the literature and VectorBase (TXT).
+ 10) Supplementary Data 10. Source data of metrics used to plot Figure 4b (TXT).
 
