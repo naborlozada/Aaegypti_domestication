@@ -22,7 +22,7 @@ These scripts are divided in those used to detect outliers based on (1) the maha
 ##
 **Detection of Selection using the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS)**
 
-Summary steps description and code is in the page: `Dection_of_Selection_with_MKT.md`. All jobs were ran in parallel to optimize time.
+Summary steps description and code is in the page: `Dection_of_Selection_with_MKT.md`. 
 
 ##
 Comment on the **Update for the rebuttal 2024**\
@@ -33,5 +33,4 @@ Two additional scripts that were used to performed the outlier detection based o
 * PERL script: `gene_distribution_across_Africa_and_Out_of_Africa.LOCAL_RAiSD_analysis.pl`.
 
 **McDonald and Kreitman test (MKT) and the Direction of Selection (DoS)**
-* `Dection_of_Selection_with_MKT.md`: contains all steps and code used in a single file.
-
+* `Dection_of_Selection_with_MKT.md`: contains all steps and a 'summary' code (as loops) used in a single protein coding genes poopulation, since all jobs were ran in parallel to optimize time.
