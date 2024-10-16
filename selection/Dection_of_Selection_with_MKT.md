@@ -75,8 +75,8 @@ for(i in 1:length(dafs)){
     daf      <- try(read.delim(daf_file, header = T, stringsAsFactors = F));
     div      <- try(read.delim(div_file, header = T, stringsAsFactors = F));
 
-    mkt_list[[i]]  <- try(standardMKT(daf, div));
-   DGRP_list[[i]]  <- try(DGRP(daf, div));
+    mkt_list[[i]]   <- try(standardMKT(daf, div));
+    DGRP_list[[i]]  <- try(DGRP(daf, div));
 }
 
 
@@ -151,36 +151,26 @@ MKT_STD <- data.frame(geneID=myGENE_ID %>% gsub(pattern=".cds.downsampled.ortho.
                           MKT_STD_Fishers_pvalue=mkt_list %>% lapply("[",2) %>% unlist(),
                           MKT_std_alpha=mkt_list %>% lapply("[",1) %>% unlist(),
                           stringsAsFactors = FALSE) #%>% subset(!is.na(MKT_STD_pvalue))
-  
 
+
+# extract alpha scores from MK-test standard
 MKT_STD$MKT_STD_alpha_clean <- gsub("\\n", "#", MKT_STD$MKT_std_alpha)
 
-# MK-test standard
+# extract adjusted pval MK-test standard
 MKT_STD$MKT_STD_Fisher_pval.adj <- p.adjust(MKT_STD$MKT_STD_Fishers_pvalue, method = "BH");
 
 
 
-# DGRP
+# DGRP (same as MKT standard, but with counts for neutral and deleterious mutations proportion on the protein coding gene)
 MKT_DGRP <- data.frame(geneID2=myGENE_ID %>% gsub(pattern=".cds.downsampled.ortho.snps.codon.NT.aln.noFS.sorted.fas2daf.parsed.daf",replace=""),
                           MKT_STD_alpha=DGRP_list %>% lapply(getAlpha) %>% unlist(),
                           MKT_div_Ka=DGRP_list %>% lapply(getDivMetrics_Ka) %>% unlist(),
                           MKT_div_Ks=DGRP_list %>% lapply(getDivMetrics_Ks) %>% unlist(),
-                          MKT_div_omega=DGRP_list %>% lapply(getDivMetrics_OMEGA) %>% unlist(),
                           MKT_MKtbl_pS_counts=DGRP_list %>% lapply(getMKcontigencyTbl_NEUTRAL_Polymorphism) %>% unlist(),
                           MKT_MKtbl_dS_counts=DGRP_list %>% lapply(getMKcontigencyTbl_NEUTRAL_Divergence) %>% unlist(),
                           MKT_MKtbl_pN_counts=DGRP_list %>% lapply(getMKcontigencyTbl_SELECTED_Polymorphism) %>% unlist(),
                           MKT_MKtbl_dN_counts=DGRP_list %>% lapply(getMKcontigencyTbl_SELECTED_Divergence) %>% unlist(),
-                          MKT_DGRP_fraction_d_cutoff0=DGRP_list %>% lapply(getFractions_0d) %>% unlist(),
-                          MKT_DGRP_fraction_f_cutoff0=DGRP_list %>% lapply(getFractions_0f) %>% unlist(),
-                          MKT_DGRP_fraction_b_cutoff0=DGRP_list %>% lapply(getFractions_0b) %>% unlist(),
-                          MKT_DGRP_fraction_d_cutoff005=DGRP_list %>% lapply(getFractions_005d) %>% unlist(),
-                          MKT_DGRP_fraction_f_cutoff005=DGRP_list %>% lapply(getFractions_005f) %>% unlist(),
-                          MKT_DGRP_fraction_b_cutoff005=DGRP_list %>% lapply(getFractions_005b) %>% unlist(),
-                          MKT_DGRP_fraction_d_cutoff01=DGRP_list %>% lapply(getFractions_01d) %>% unlist(),
-                          MKT_DGRP_fraction_f_cutoff01=DGRP_list %>% lapply(getFractions_01f) %>% unlist(),
-                          MKT_DGRP_fraction_b_cutoff01=DGRP_list %>% lapply(getFractions_01b) %>% unlist(),
                           stringsAsFactors = FALSE)
-
 
 
 # merge all MK test tables
