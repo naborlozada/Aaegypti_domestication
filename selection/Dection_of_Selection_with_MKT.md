@@ -66,7 +66,7 @@ done
 ```
 
 ```R
-# for each gene ID in each single populoatioon, calculate the MKT:
+# for each gene ID in each single populoatioon, calculate the MKT and DoS:
 
 # read files with DAF names, and also read DIV ones.
 for(i in 1:length(dafs)){
@@ -161,7 +161,6 @@ MKT_STD$MKT_STD_Fisher_pval.adj <- p.adjust(MKT_STD$MKT_STD_Fishers_pvalue, meth
 
 # DGRP
 MKT_DGRP <- data.frame(geneID2=myGENE_ID %>% gsub(pattern=".cds.downsampled.ortho.snps.codon.NT.aln.noFS.sorted.fas2daf.parsed.daf",replace=""),
-                          MKT_Fishers_pvalue=DGRP_list %>% lapply(getPval) %>% unlist(),
                           MKT_STD_alpha=DGRP_list %>% lapply(getAlpha) %>% unlist(),
                           MKT_div_Ka=DGRP_list %>% lapply(getDivMetrics_Ka) %>% unlist(),
                           MKT_div_Ks=DGRP_list %>% lapply(getDivMetrics_Ks) %>% unlist(),
@@ -179,10 +178,7 @@ MKT_DGRP <- data.frame(geneID2=myGENE_ID %>% gsub(pattern=".cds.downsampled.orth
                           MKT_DGRP_fraction_d_cutoff01=DGRP_list %>% lapply(getFractions_01d) %>% unlist(),
                           MKT_DGRP_fraction_f_cutoff01=DGRP_list %>% lapply(getFractions_01f) %>% unlist(),
                           MKT_DGRP_fraction_b_cutoff01=DGRP_list %>% lapply(getFractions_01b) %>% unlist(),
-                          stringsAsFactors = FALSE) #%>% subset(!is.na(MKT_Fishers_pvalue))
-
-
-MKT_DGRP$MKT_Fisher_pval.adj    <- p.adjust(MKT_DGRP$MKT_Fishers_pvalue, method = "BH");
+                          stringsAsFactors = FALSE)
 
 
 
