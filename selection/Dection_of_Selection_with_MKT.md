@@ -76,6 +76,7 @@ for(i in 1:length(dafs)){
     div      <- try(read.delim(div_file, header = T, stringsAsFactors = F));
 
     mkt_list[[i]]  <- try(standardMKT(daf, div));
+   DGRP_list[[i]]  <- try(DGRP(daf, div));
 }
 
 
