@@ -18,7 +18,7 @@ proteinortho_clustering  protein_ortho_aaegL5_vs_alboFs.blast-graph  >  protein_
 
 
 ## /// Step 2 to 5 ///
-```bash
+
 $CDS_POPS=/home/nlozada/aaegypti/all_downsampled_pops/alignments/*_CDS
 
 for i in CDS_POP;
@@ -53,12 +53,12 @@ done
 ALL_POPS_CODON_ALNS_GENEIDS=FULLPATH_POP_CODON_ALNS_GENEID.txt;
 
 # changes columns from the original DAF and DIV files separately;
-parser_command_string_DAF = "'{print \$1\"\\t\"\$3\"\\t\"\$2}'";
-parser_command_string_DIV = "'{print \$3\"\\t\"\$2\"\\t\"\$4\"\\t\"\$1}'";
+#parser_command_string_DAF = "'{print \$1\"\\t\"\$3\"\\t\"\$2}'";
+#parser_command_string_DIV = "'{print \$3\"\\t\"\$2\"\\t\"\$4\"\\t\"\$1}'";
 
 
 foreach CODON in ALL_POPS_CODON_ALNS_GENEIDS;
-   CODON_name = FILE2=$(basename ${FILE1} .fasta)
+   CODON_name = $(basename ${CODON} .fasta)
    do python2.7 sfsFromFasta_v2.py --multiFasta $CODON  --daf {CODON}.daf  --div {CODON}.div  --codonTable standard
    awk '{print $1,"\t",$3,"\t",$2}' {CODON}.daf > {CODON}.parsed.daf;
    awk '{print $1,"\t",$3,"\t",$2}' {CODON}.div > {CODON}.parsed.div;
@@ -73,10 +73,13 @@ suppressMessages(library(iMKT));
 suppressMessages(library(dplyr));
 suppressMessages(library(tidyr));
 
+# File names of DAF calculations
+DAF_FILES <- readLines("/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/results/selection_dnds/populations_vcffastas_mktest/scripts/make_reference_snps_genes.combined_app/vcf2fasta.step5.make_MKtest/ran_examples/daf_n_div_files/american_samoa.tafuna_village_CDS.downsampled.daf_list_files.txt")
 
-# read files with DAF names, and also read DIV ones.
-for(i in 1:length(dafs)){
-    daf_file <- paste0(dafs[i]);
+
+# read files with DAF names, parsed names to read also DIV files. Make MKT:
+for(i in 1:length(DAF_FILES)){
+    daf_file <- paste0(DAF_FILES[i]);
     div_file <- gsub("fas2daf.parsed.daf","fas2div.parsed.div",daf_file);
     daf      <- try(read.delim(daf_file, header = T, stringsAsFactors = F));
     div      <- try(read.delim(div_file, header = T, stringsAsFactors = F));
@@ -150,9 +153,9 @@ getMKcontigencyTbl_SELECTED_Divergence <- function(x){
 # MKT: Finally get main outputs
 # -------------------------------------------------------------------------------
 
-myGENE_ID <- gsub('.*\\/', '', dafs);
+myGENE_ID <- gsub('.*\\/', '', DAF_FILES);
 
-# MK-test
+
 MKT_STD <- data.frame(geneID=myGENE_ID %>% gsub(pattern=".cds.downsampled.ortho.snps.codon.NT.aln.noFS.sorted.fas2daf.parsed.daf", replace=""),
                           MKT_STD_Fishers_pvalue=mkt_list %>% lapply("[",2) %>% unlist(),
                           MKT_std_alpha=mkt_list %>% lapply("[",1) %>% unlist(),
