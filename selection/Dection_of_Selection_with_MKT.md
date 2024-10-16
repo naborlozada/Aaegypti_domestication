@@ -5,6 +5,7 @@
 3. After downsampling each population (as described in Methods), we extracted all orthologs genes in each single individual genome and population.
 4. Codon alignments were created and refined using 'macse' v2.07, and verified with 'pal2nal' program.
 5. We used the 'iMKT' R package and scripts provided by the [Murga-Moreno etal 2019: iMTK group paper](https://academic.oup.com/nar/article/47/W1/W283/5488529?login=false) to detect signals of Selection on each single gene alignment in each population of Africa and Out of Africa.
+6. Calculate the Direction of Selection (DoS) for each gene ID of each population.
 
 ```bash
 ## /// Step 1 ///
@@ -183,7 +184,7 @@ main_MKT_results <- cbind(MKT_STD,MKT_DGRP);
 
 
 
-# Calculate DoS
+# /// Step 6: Calculate DoS ///
 # -------------------------------------------------------------------------------
 
 # Direction of selection:
