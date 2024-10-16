@@ -68,6 +68,12 @@ done
 ```R
 # for each gene ID in each single populoatioon, calculate the MKT and DoS:
 
+
+suppressMessages(library(iMKT));
+suppressMessages(library(dplyr));
+suppressMessages(library(tidyr));
+
+
 # read files with DAF names, and also read DIV ones.
 for(i in 1:length(dafs)){
     daf_file <- paste0(dafs[i]);
