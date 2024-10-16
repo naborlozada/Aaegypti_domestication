@@ -38,7 +38,6 @@ ALL_POPS_PROTEOME_GENEID=full_path_whole_proteome_population_GENEID.txt;
 for POPDIR in  ALL_POPS_DIR_PATH_NAMES;
    cd $POPDIR;
    for GENEID in ALL_POPS_PROTEOME_GENEID;
-      java -jar macse.jar $GENEID   
       java -jar macse_v2.07.jar  -prog alignSequences  -seq ${GENEID}.cds.ortho.snps.fasta  -max_refine_iter 4  -out_AA ${GENEID}.cds.ortho.snps.AA.aln.fasta  -out_NT ${GENEID}.cds.ortho.snps.NT.aln.fasta;
       java -jar macse_v2.07.jar  -prog exportAlignment  -align ${GENEID}.cds.ortho.snps.NT.aln.fasta   -codonForInternalStop NNN -codonForInternalFS --- -charForRemainingFS ---  -out_AA ${GENEID}.cds.ortho.snps.AA.aln_noFS.fasta  -out_NT ${GENEID}.cds.ortho.snps.NT.aln_noFS.fasta;
       # sort alignment as requested in "Murga-Moreno etal 2019: iMTK group paper": 1) reference gene ID AaegL5, 2) all genes (same geneID as 1) with the polymorphic mutations (SNPs), 3) ortholog gene
