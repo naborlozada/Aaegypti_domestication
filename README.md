@@ -76,15 +76,9 @@ This directory contains different scripts:\
 * **`selective_sweeps.raisd.LOCAL.get_tail_tops_1_n_0.05.R` :** R script that performs two main cutoffs and creates two BED outfiles to map against the reference genome of *Ae. aegypti* (AaegL5).
 * **`gene_distribution_across_Africa_and_Out_of_Africa.LOCAL_RAiSD_analysis.pl` :** PERL script that filters the output files of each population to define cases that in which genesa are either shared and/or specific for a  population. It focused on the cases of Out of Africa specific, but also shows cases for shared between Africa and Out of Africa, and Africa population specific.
 
-<ins>**pN/ps ratio:**</ins>\
-(1) Based on only segregating sites of Ae. aegypti's populations:
-* **`pnps_ratio.R`:** R script to calculate the pn/pn ratio of SNPs of a population.
+<ins>**Detection of Selection using the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS):**</ins>
 
-(2) Based on the divergence between two sister species: Ae. aegypti and Ae. albopictus using YN model from PAML. 
-* **`detection_of_selection_PAML.md`** Summary protocol steps and the script used to calculate the pN/pS ratio for each protein coding gene in each single population.
-* **`merge_orthologues_genes.pl`** PERL script ot join two orthologs genes in a single fasta file.
-* **`GENEID_yn00.ctl`** Control infile from PAML YN model (YN_model.ctl). 
-* **`get_pnps_ratio_per_poplation.pl`** PERL script that extract the pN/pS statistics from PAML analysis and sort them for each single gene present in a population, and define the type of selection based on the threshold.
+Summary steps description and code is in the page: `Dection_of_Selection_with_MKT.md`. 
 
 
 ### Other scripts
