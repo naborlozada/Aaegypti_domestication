@@ -74,8 +74,8 @@ suppressMessages(library(dplyr));
 suppressMessages(library(tidyr));
 
 # File names of DAF calculations
-DAF_FILES <- readLines("/scr/k80san3/ilozada/aedes_aegypti/NEE_paper/results/selection_dnds/populations_vcffastas_mktest/scripts/make_reference_snps_genes.combined_app/vcf2fasta.step5.make_MKtest/ran_examples/daf_n_div_files/american_samoa.tafuna_village_CDS.downsampled.daf_list_files.txt")
-
+DAF_FILES <- readLines("/home/nlozada/aedes_aegypti/NEE_paper/results/make_MKtest/daf_n_div_files/country.popname1.downsampled.daf_list_files.txt")
+# pop 1 out of 40
 
 # read files with DAF names, parsed names to read also DIV files. Make MKT:
 for(i in 1:length(DAF_FILES)){
