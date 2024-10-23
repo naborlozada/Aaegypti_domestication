@@ -59,7 +59,7 @@ ALL_POPS_CODON_ALNS_GENEIDS=FULLPATH_POP_CODON_ALNS_GENEID.txt;
 
 foreach CODON in ALL_POPS_CODON_ALNS_GENEIDS;
    CODON_name = $(basename ${CODON} .fasta)
-   do python2.7 sfsFromFasta_v2.py --multiFasta $CODON  --daf {CODON}.daf  --div {CODON}.div  --codonTable standard
+   do python2.7 sfsFromFasta.py --fasta $CODON  --daf {CODON}.daf  --div {CODON}.div  --codonTable standard
    awk '{print $1,"\t",$3,"\t",$2}' {CODON}.daf > {CODON}.parsed.daf;
    awk '{print $1,"\t",$3,"\t",$2}' {CODON}.div > {CODON}.parsed.div;
 done
