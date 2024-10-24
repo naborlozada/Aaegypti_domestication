@@ -65,6 +65,11 @@ foreach CODON in ALL_POPS_CODON_ALNS_GENEIDS;
 done
 ```
 
+## Calculation of MKT and DoS for each gene and population.
+
+This sample custom R script is used for all genes to be analyzed in a single population. A list of genes most be provided so the R script can read it and parse the names in it to read each single pair of infiles: `daf` and `div`. Here we used the `daf` files as reference. The extension names of the gene files can be removed and/or replace in the code.
+
+
 ```R
 # for each gene ID in each single populoatioon, calculate the MKT and DoS:
 
