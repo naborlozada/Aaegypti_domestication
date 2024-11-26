@@ -12,9 +12,10 @@ Title:
 <ins>This is a final version of the repository with all main scripts used for the study and Supplementary Data files cited in the manuscript. If you use one or more of these scripts or data in a complete or partial form for your research, as well as any other data contained here, **please cite us**: </ins>
 
 This repository **`Github` and `Zenodo`**:\
-   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.7863455)
-   
-   * Lozada-Chávez, A.N., Lozada-Chávez, I., Alfano, N., Palatini, U., Sogliani, D., Elfekih, D., Degefa, T., Sharakhova, M.V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos B.C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J.A., & Bonizzoni M. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Zenodo. https://doi.org/10.5281/zenodo.7863455 (2024).
+   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.14226399)
+
+   * Lozada-Chávez, A. N., Lozada-Chávez, I., Niccolò, A., Palatini, U., Sogliani, D., Elfekih, S., Degefa, T., Sharakhova, M. V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos, B. C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J. A., & Bonizzoni, M. (2024). Adaptive genomic signatures of globally invasive popultions of the yellow fever mosquito *Aedes aegypti* (v.1.0). Zenodo. https://doi.org/10.5281/zenodo.14226399.
+
 
 The preprint **bioRxiv** paper:
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
