@@ -1,47 +1,28 @@
 # Aaegypti_domestication
 ---
 Title:
-**Genomic signatures of globally invasive *Aedes aegypti* populations***
+**Adaptive genomic signatures of globally invasive popultions of the yellow fever mosquito *Aedes aegypti****
 
 **Authors:** Alejandro Nabor Lozada-Chávez, Irma Lozada-Chávez, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Luis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
 
-**CURRENTLY, THIS MANUSCRIPT IS UNDER REVIEW.**
+**ACCEPTED MANUSCRIPT**
 
 --- 
 
-<ins>These and previous versions of the scripts are subject to changes and tests. If you use them (one or more) in a complete or partial form for your research, as well as any other data contained here, please cite this repository (**`Github` and `Zenodo`**) and the preprint **bioRxiv** paper.</ins>
+<ins>This is a final version of the repository with all main scripts used for the study and Supplementary Data files cited in the manuscript. If you use one or more of these scripts or data in a complete or partial form for your research, as well as any other data contained here, **please cite us**: </ins>
 
-  **Repository/scripts citation:**\
+This repository **`Github` and `Zenodo`**:\
    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.7863455)
    
-   * Nabor Lozada. (2024). Aedes aegypti domestication (v0.4). Zenodo. https://doi.org/10.5281/zenodo.10721413
+   * Lozada-Chávez, A.N., Lozada-Chávez, I., Alfano, N., Palatini, U., Sogliani, D., Elfekih, D., Degefa, T., Sharakhova, M.V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos B.C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J.A., & Bonizzoni M. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Zenodo. https://doi.org/10.5281/zenodo.7863455 (2024).
+
+The preprint **bioRxiv** paper:
    * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
 
 
-##
-## NOTICE (updated 3-October-2024):
-1) **Selection.** In this directory, a single MD file describing the approach to detect Selection on protein coding genes based on both, the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS). First, single short text steps are decribed from the detection of orthologs, codon alignments, and both analyses of MKT and DoS. Next, a summary of each step in bash scripting languages for orthologs detection and codon alignments, and both analyses, MKT and DoS, in R code context MD format.
-2) **Supplementary Data (SD).** SD associated to the current submmitted version of the manuscript was updated and is located in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is at the bottom of this page.
-3) All data (raw and supplementary data) and scripts associated to the detection of selection using **pn/ps** and **dn/ds from PAML** described in the previous submitted manuscript were completely removed.
-##
-## NOTICE (updated 13-May-2024):
-1) **selection** In this directory, six scripts and a summary step protocol were added, and they are related to the <ins>**detection of outliers based on the selection of a top 0.05% and 1% of a tail distribution** of `RAiSD` results, and to the **detection of selection in coding protein genes using PAML**. See **selection** directory for details.</ins>.
-2) The Supplementary Data ZIP file was updated. See changes in the **Supplementary Data** directory.
-3) SRA name of each samples were added to the Supplementary Table 1 (BioProject: PRJNA943178).
-##
-## NOTICE (updated 15-Jan-2024):
-1) **Downsampling** description files and scripts were included in this version in the <ins>**downsampled_analyses** directory</ins>.
-2) **Population Branch Statistics  (PBS)** description file and scripts were included in this version in the <ins>**downsampled_analyses** directory</ins>.
-3) **Detection of hard selective sweeps** description files and scripts associated to the new integrated approach **RAiSD** were included in the <ins>**Selection** directory</ins>. 
-##
-## NOTICE (updated 22-May-2023):
-1) **Supplementary Data** associated to the current submmitted version of the manuscript is in the <ins>**Supplementary Data** directory</ins> of this repository. A summary of the content is below. 
-2) Due technical issues, we are currently reuploading the Whole Genome Sequences (WGS) in the SRA database under the BioProject: PRJNA943178.
-
-## 
 ## Description
 
-Scripts used to analyzed >600 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 39 populations worldwide to uderstand the origin and evolution of its **domestication**. Sections of this repository: `processing samples`, `variant calling`, detection of `selection`.
+This repository contains the scripts used to analyzed >600 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 40 populations worldwide to uderstand the origin and evolution of its **domestication**. The repository is divided in 4 sections: 1) `processing samples`, 2) `variant calling`, 3) detection of `selection`, and 4) `Supplementary Data`.
 
 
 
@@ -79,11 +60,6 @@ This directory contains different scripts:\
 <ins>**Detection of Selection using the McDonald and Kreitman test (MKT) and the Direction of Selection (DoS):**</ins>
 
 Summary steps description and code is in the page: `Dection_of_Selection_with_MKT.md`. 
-
-
-### Other scripts
-
-This directory contains scripts used for additional analyses and/or parse several results. 
 
 
 ## 
