@@ -14,7 +14,7 @@ Title:
 This repository **`Github` and `Zenodo`**:\
    [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.14226399)
 
-   * Lozada-Chávez, A. N., Lozada-Chávez, I., Niccolò, A., Palatini, U., Sogliani, D., Elfekih, S., Degefa, T., Sharakhova, M. V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos, B. C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J. A., & Bonizzoni, M. (2024). Adaptive genomic signatures of globally invasive popultions of the yellow fever mosquito *Aedes aegypti* (v.1.0). Zenodo. https://doi.org/10.5281/zenodo.14226399.
+   * Lozada-Chávez, A. N., Lozada-Chávez, I., Niccolò, A., Palatini, U., Sogliani, D., Elfekih, S., Degefa, T., Sharakhova, M. V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos, B. C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J. A., & Bonizzoni, M. (2024). Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti* (v.1.0). Zenodo. https://doi.org/10.5281/zenodo.14226399.
 
 
 The preprint **bioRxiv** paper:
