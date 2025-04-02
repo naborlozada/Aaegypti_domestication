@@ -3,27 +3,46 @@
 Title:
 **Adaptive genomic signatures of globally invasive popultions of the yellow fever mosquito *Aedes aegypti****
 
-**Authors:** Alejandro Nabor Lozada-Chávez, Irma Lozada-Chávez, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Louis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
 
-**ACCEPTED MANUSCRIPT**
+
+**Authors:** Alejandro Nabor Lozada-Chávez*, Irma Lozada-Chávez*, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Louis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
+
+\* These authors contributed equally: Alejandro N. Lozada-Chávez, Irma Lozada-Chávez.
+
+
+**Citation:**\
+[Lozada-Chávez, A.N., Lozada-Chávez, I. *et al.* Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Nat Ecol Evol (2025).](https://doi.org/10.1038/s41559-025-02643-5) DOI: https://doi.org/10.1038/s41559-025-02643-5
 
 --- 
+<br>
+<br>
 
-<ins>This is a final version of the repository with all main scripts used for the study and Supplementary Data files cited in the manuscript. If you use one or more of these scripts or data in a complete or partial form for your research, as well as any other data contained here, **please cite us**: </ins>
-
-This repository **`Github` and `Zenodo`**:\
-   [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10721413.svg)](https://doi.org/10.5281/zenodo.14226399)
-
-   * Lozada-Chávez, A. N., Lozada-Chávez, I., Niccolò, A., Palatini, U., Sogliani, D., Elfekih, S., Degefa, T., Sharakhova, M. V., Badolo, A., Patchara, S., Casas-Martinez, M., Carlos, B. C., Carballar-Lejarazú, R., Lambrechts, L., Souza-Neto, J. A., & Bonizzoni, M. (2024). Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti* (v.1.0). Zenodo. https://doi.org/10.5281/zenodo.14226399.
+* This final version of the repository has the main scripts used for our study (See Description). 
+* All Supplementary and Additional Information, such as Tables (single excel file), Extended Data Figures and more can be found in the [Supplementary Information section](https://www.nature.com/articles/s41559-025-02643-5#Sec29).
+* Supplementary Data (1-12) is accessible from the Zenodo repository. The final and complete version of these datasets is in the **version 3**, and is accessible from this DOI:\
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14948092.svg)](https://doi.org/10.5281/zenodo.14948092)
 
 
-The preprint **bioRxiv** paper:
-   * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092 [submitted]. 
+<br>
+
+**IMPORTANT NOTE:** If you use one or more of these scripts and/or data in a complete or partial form for your research, as well as any other information contained here, **please cite us with at least one of these references based on:**
+
+   * **Research paper:** Lozada-Chávez, A.N., Lozada-Chávez, I. *et al.* Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Nat Ecol Evol (2025). DOI: https://doi.org/10.1038/s41559-025-02643-5
+   * **Scripts and data in Github**:  Lozada-Chávez, A. N. 2024. Aaegypti_domestication. Github repository. https://github.com/naborlozada/Aaegypti_domestication.
+
+   * **Datasets:** Lozada-Chávez, A. N. et al. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Zenodo https://doi.org/10.5281/zenodo.14948092 (2024).
+   
+
+<br>
+For historical reasons, here we cite our preprint in **bioRxiv** (not peer reviewed!):
+
+* A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092. 
+
 
 
 ## Description
 
-This repository contains the scripts used to analyzed >600 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 40 populations worldwide to uderstand the origin and evolution of its **domestication**. The repository is divided in 4 sections: 1) `processing samples`, 2) `variant calling`, 3) detection of `selection`, and 4) `Supplementary Data`.
+This repository contains the scripts used to analyzed 686 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 40 populations worldwide to uderstand the origin and evolution of its **domestication**. The repository is divided in 4 sections: 1) `processing samples`, 2) `variant calling`, 3) `population genetics`, and 4) `detection of selection`.
 
 
 
@@ -43,7 +62,14 @@ Single bash script `variant_calling_gatk.sh`. It was used in each population for
   3) Filter SNPs in two step procedure to get a final set of biallelic SNPs.
 
 
-### Selection
+### Population Genetics analyses
+
+  1) Analyses using `non-downsampled populations`: SNP density, Nucletide diversity, Tajima's D, PCA, and Admixture.  
+  2) Analyses based on the `downsampled populations`: Nucletide diversity, Tajima's D, and Population Branch Statics (PBS) using ANGSD.
+
+NOTE: In the section `downsampled populations` we provided the full original output data from ANGSD for nucleotide diversity and Tajima's D by population, as well as a simple R script to produce basic statitics, so the results in Table 1 and Supplementary Table 5 (tables 2 and 3) from our paper can be reproduced. The original data from ANGSD is also shared in the Supplementary Table 6, however, we noticed that data of these two metrics are missing for the population Entebbe (included in the TXT file).
+
+### Detection of Selection
 
 This directory contains different scripts:\
 <ins>**PCadapt:**</ins>
@@ -66,19 +92,24 @@ Summary steps description and code is in the page: `Dection_of_Selection_with_MK
 ## 
 ## Supplementary Data: 
 
-This **Supplementary Data** can be found in **ZENODO**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14241753.svg)](https://doi.org/10.5281/zenodo.14241753)
+This **Supplementary Data** can be found in **ZENODO**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14948092.svg)](https://doi.org/10.5281/zenodo.14948092)
 
 
-Supplementary_Data.zip: Supplementary Data Files 1-11 in proper formats. A complete list of SDs is below:
+Supplementary_Data.zip: Supplementary Data Files 1-12 in compressed ZIP or TAR formats. The Supplementary Data 12 (SD-12) is missing in the Supplementary Data in Nature Ecology and Evolution since it was a large big file. In Zenodo SD-12 can be found. A complete list of SDs is below:
 
 1) Supplementary Data 1. SNP statistics for populations through genomic regions (TXT). 
 2) Supplementary Data 2. Sequences of new detected nrEVEs (FASTA). 
 3) Supplementary Data 3. Phylogenetic trees for populations and individuals (NEWICK). 
-4) Supplementary Data 4. Information for 8,148 hard selective sweeps detected with RAiSD in out-of-Africa populations (TXT). 
+4) Supplementary Data 4. Information for 8,120 hard selective sweeps detected with RAiSD in out-of-Africa populations (TXT). 
 5) Supplementary Data 5. Information for 1,030 SNP outliers detected with PCAdapt within 2,266 genes (VCF format). 
 6) Supplementary Data 6. Matrix with DoS scores for 11,651 orthologous protein-coding genes in AaegL5 and each Ae. aegypti population (TXT). 
 7) Supplementary Data 7. Matrix with MKT scores for 11,651 orthologous protein-coding genes in AaegL5 and each Ae. aegypti population (TXT). 
 8) Supplementary Data 8. Matrix with DoS scores used to estimate relaxed selection (TXT). 
 9) Supplementary Data 9. Matrix with SNPs and genomic coordinates within adaptive protein-coding genes and ncRNAs that are shared or private for out-of-Africa populations against African populations (TXT). 
-10) Supplementary Data 10. Genomic coordinates of SNPs in AaegL5 obtained from the literature and VectorBase (TXT). 
-11) Supplementary Data 11. Source data of metrics used to plot Figure 4b (TXT).
+10) Supplementary Data 10. Matrix with 483 nonsynonymous SNPs and their allele frequencies for our 40 populations Florida and Colombia (TXT).
+11) Supplementary Data 11. Genomic coordinates of SNPs in AaegL5 obtained from the literature and VectorBase (TXT). 
+12) Supplementary Data 12. Source data of metrics used to plot Figure 4b (TXT).
+
+
+NOTE: See notes added on the `description` in the Zenodo's repository.
+
