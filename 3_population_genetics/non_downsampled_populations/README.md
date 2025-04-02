@@ -1,0 +1,1 @@
+The file **`Population_genetics.md`** contain information of a series of scripts and command pipelines used to perform analyses in non-downsampled populations associated to SNPs counts and genetic diversity, as well as for other population genetics, such as PCA and Admixture.
