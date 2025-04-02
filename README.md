@@ -39,7 +39,7 @@ For historical reasons, here we cite our preprint in **bioRxiv** (not peer revie
 * A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092. 
 
 
-
+## 
 ## Description
 
 This repository contains the scripts used to analyzed 686 complete genomes of *Aedes aegypti* (*Ae. aegypti*) from 40 populations worldwide to uderstand the origin and evolution of its **domestication**. The repository is divided in 4 sections: 1) `processing samples`, 2) `variant calling`, 3) `population genetics`, and 4) `detection of selection`.
