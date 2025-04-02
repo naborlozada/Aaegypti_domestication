@@ -67,7 +67,7 @@ Single bash script `variant_calling_gatk.sh`. It was used in each population for
   1) Analyses using `non-downsampled populations`: SNP density, Nucletide diversity, Tajima's D, PCA, and Admixture.  
   2) Analyses based on the `downsampled populations`: Nucletide diversity, Tajima's D, and Population Branch Statics (PBS) using ANGSD.
 
-NOTE: In the section `downsampled populations` we provided the full original output data from ANGSD for nucleotide diversity and Tajima's D by population, as well as a simple R script to produce basic statitics, so the results in Table 1 and Supplementary Table 5 (tables 2 and 3) from our paper can be reproduced. The original data from ANGSD is also shared in the Supplementary Table 6, however, we noticed that data of these two metrics are missing for the population Entebbe (included in the TXT file).
+NOTE: In the section `downsampled populations` we provided the full original output data from ANGSD for nucleotide diversity and Tajima's D by population, as well as a simple R script to produce basic statistics, so the results in Table 1 and Supplementary Table 5 (tables 2 and 3) from our paper can be reproduced. The original data from ANGSD is also shared in the Supplementary Table 6, however, we noticed that data of these two metrics (nucleotide diversity and Tajima's D) are missing for the population Entebbe. Now are included in the TXT file attached in this section).
 
 ### Detection of Selection
 
