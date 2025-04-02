@@ -18,7 +18,7 @@ Title:
 <br>
 
 * This final version of the repository has the main scripts used for our study (See Description). 
-* All Supplementary and Additional Information, such as Tables (single excel file), Extended Data Figures and more can be found in the [Supplementary Information section](https://www.nature.com/articles/s41559-025-02643-5#Sec29).
+* All Supplementary and Additional Information, such as Tables (single excel file), Extended Data Figures and more can be found in the *Supplementary Information* section of our paper in [**Nature Ecology & Evolution**](https://www.nature.com/articles/s41559-025-02643-5#Sec29).
 * Supplementary Data (1-12) is accessible from the Zenodo repository. The final and complete version of these datasets is in the **version 3**, and is accessible from this DOI:\
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14948092.svg)](https://doi.org/10.5281/zenodo.14948092)
 * **NOTICE:** *On April 2nd, 2025*, we performed a slight reorganization of this repository by separating in two different directories the `Populations Genetics` and the `Detection of Selection` sections. Also, we arranged  properly few file names used in some commands to make consistent the steps followed one-after-another.   
