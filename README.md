@@ -11,7 +11,7 @@ Title:
 
 
 **Citation:**\
-Lozada-Chávez AN, Lozada-Chávez I, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: 10.1038/s41559-025-02643-5.
+Lozada-Chávez AN, Lozada-Chávez I, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: [10.1038/s41559-025-02643-5.](https://www.nature.com/articles/s41559-025-02643-5)
 
 PMID: 40155778; PMCID: PMC11976285. Early publication: 2025 Mar 28.
 
