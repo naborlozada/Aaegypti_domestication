@@ -4,16 +4,14 @@ Title:
 **Adaptive genomic signatures of globally invasive popultions of the yellow fever mosquito *Aedes aegypti****
 
 
-
-**Authors:** Alejandro Nabor Lozada-Chávez*, Irma Lozada-Chávez*, Niccolò Alfano, Umberto Palatini, Davide Sogliani, Samia Elfekih, Teshome Degefa, Maria V. Sharakhova, Athanase Badolo, Sriwichai Patchara, Mauricio Casas-Martinez, Bianca C. Carlos, Rebeca Carballar-Lejarazú, Louis Lambrechts, Jayme A. Souza-Neto & Mariangela Bonizzoni
-
-\* These authors contributed equally: Alejandro N. Lozada-Chávez, Irma Lozada-Chávez.
+\* These authors contributed equally in the research article: Alejandro N. Lozada-Chávez, Irma Lozada-Chávez.
 
 
 **Citation:**\
-Lozada-Chávez AN, Lozada-Chávez I, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti*. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: [10.1038/s41559-025-02643-5.](https://www.nature.com/articles/s41559-025-02643-5)
+Lozada-Chávez AN*, Lozada-Chávez I*, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti*. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: [10.1038/s41559-025-02643-5.](https://www.nature.com/articles/s41559-025-02643-5)
 
 PMID: 40155778; PMCID: PMC11976285. Early publication: 2025 Mar 28.
+
 
 
 --- 
