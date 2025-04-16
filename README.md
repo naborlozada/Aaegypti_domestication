@@ -11,7 +11,7 @@ Title:
 
 
 **Citation:**\
-Lozada-Chávez AN, Lozada-Chávez I, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: [10.1038/s41559-025-02643-5.](https://www.nature.com/articles/s41559-025-02643-5)
+Lozada-Chávez AN, Lozada-Chávez I, Alfano N, Palatini U, Sogliani D, Elfekih S, Degefa T, Sharakhova MV, Badolo A, Sriwichai P, Casas-Martínez M, Carlos BC, Carballar-Lejarazú R, Lambrechts L, Souza-Neto JA, Bonizzoni M. 2025. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti*. ***Nat. Ecol. Evol.*** 9(4):652-671. doi: [10.1038/s41559-025-02643-5.](https://www.nature.com/articles/s41559-025-02643-5)
 
 PMID: 40155778; PMCID: PMC11976285. Early publication: 2025 Mar 28.
 
@@ -31,15 +31,15 @@ PMID: 40155778; PMCID: PMC11976285. Early publication: 2025 Mar 28.
 **IMPORTANT NOTE:** If you use one or more of these scripts and/or data in a complete or partial form for your research, as well as any other information contained here, **please cite us with at least one of these references based on:**
 
    * **Research paper:** Lozada-Chávez, A.N., Lozada-Chávez, I. *et al.* Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Nat Ecol Evol (2025). DOI: https://doi.org/10.1038/s41559-025-02643-5
-   * **Scripts and data in Github**:  Lozada-Chávez, A. N. 2024. Aaegypti_domestication. Github repository. https://github.com/naborlozada/Aaegypti_domestication.
+   * **Scripts and data in Github**:  Lozada-Chávez, A. N. 2025. Aaegypti_domestication. Github repository. https://github.com/naborlozada/Aaegypti_domestication.
 
-   * **Datasets:** Lozada-Chávez, A. N. et al. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito Aedes aegypti. Zenodo https://doi.org/10.5281/zenodo.14948092 (2024).
+   * **Datasets:** Lozada-Chávez, A. N. et al. Adaptive genomic signatures of globally invasive populations of the yellow fever mosquito *Aedes aegypti*. Zenodo https://doi.org/10.5281/zenodo.14948092 (2024).
    
 
 <br>
 For historical reasons, here we cite our preprint in **bioRxiv** (not peer reviewed!):
 
-* A. N. Lozada-Chávez et. al. 2023. [Molecular signature of domestication in the arboviral vector *Aedes aegypti*](https://doi.org/10.1101/2023.03.13.532092). bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092. 
+* A. N. Lozada-Chávez et. al. 2023. Molecular signature of domestication in the arboviral vector *Aedes aegypti*. bioRxiv. DOI: https://doi.org/10.1101/2023.03.13.532092. 
 
 
 ## 
